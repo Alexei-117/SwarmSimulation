@@ -1,0 +1,861 @@
+[Licensing::Module] Successfully connected to LicensingClient on channel: LicenseClient-Alexei
+Entitlement-based licensing initiated
+[LicensingClient] Licenses Updated successfully in LicensingClient
+
+LICENSE SYSTEM [2020326 22:41:52] Next license update check is after 2019-04-24T07:56:36
+
+
+LICENSE SYSTEM [2020326 22:41:52] 00330-80000-00000-AA454 != 00330-80000-00000-AA980
+
+Built from '2019.3/staging' branch; Version is '2019.3.0f6 (27ab2135bccf) revision 2599713'; Using compiler version '191627012'
+OS: 'Windows 10  (10.0.0) 64bit' Language: 'es' Physical Memory: 8053 MB
+[Licensing::Module] Serial number assigned to: "F4-GBMA-E9HH-DPUF-A9MA-XXXX"\nBatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2019.3.0f6\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Alexei/Desktop/SwarmSimulation/SwarmSimulation/Swarm
+-logFile
+Library/AssetImportWorker0.log
+-srvPort
+52158
+Successfully changed project path to: C:/Users/Alexei/Desktop/SwarmSimulation/SwarmSimulation/Swarm
+C:/Users/Alexei/Desktop/SwarmSimulation/SwarmSimulation/Swarm
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 59.93 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2019.3.0f6 (27ab2135bccf)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Alexei/Desktop/SwarmSimulation/SwarmSimulation/Swarm/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   
+    VRAM:     2007 MB
+    Driver:   26.21.14.3615
+[EnlightenBakeManager] m_Clear = false;
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56964
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.038829 seconds.
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 41.10 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.944 seconds
+Registering precompiled user dll's ...
+Registered in 0.333439 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 48.28 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.236 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2155 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 96.2 MB.
+System memory in use after: 96.2 MB.
+
+Unloading 13 unused Assets to reduce memory usage. Loaded Objects now: 2544.
+Total: 3.249200 ms (FindLiveObjects: 0.495600 ms CreateObjectMapping: 0.187800 ms MarkObjects: 2.439300 ms  DeleteObjects: 0.125600 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration
+  artifactKey: Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Start importing Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration using Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Opening scene 'Assets/Scenes/Main Scene/Damage.unity additively'
+Loaded scene 'Assets/Scenes/Main Scene/Damage.unity'
+	Deserialize:            23.546 ms
+	Integration:            15.214 ms
+	Integration of assets:  0.007 ms
+	Thread Wait Time:       16.445 ms
+	Total Operation Time:   55.213 ms
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+AssemblyPaths cannot be null or empty
+at <empty>:line 0 
+(Filename:  Line: 0)
+
+Done importing asset: 'Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration' (target hash: 'caca7033978fc6ef929aa167bb4dbfc0') in 2.486475 seconds
+  Import took 2.512113 seconds.
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.042603 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 36.99 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.845 seconds
+Registering precompiled user dll's ...
+Registered in 0.347289 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.519 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.55 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 55.1 MB.
+System memory in use after: 55.2 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2561.
+Total: 3.285500 ms (FindLiveObjects: 0.498300 ms CreateObjectMapping: 0.179400 ms MarkObjects: 2.537500 ms  DeleteObjects: 0.068900 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.036748 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 33.10 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.353 seconds
+Registering precompiled user dll's ...
+Registered in 0.308636 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.308 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 55.1 MB.
+System memory in use after: 55.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2571.
+Total: 3.717200 ms (FindLiveObjects: 0.828500 ms CreateObjectMapping: 0.302000 ms MarkObjects: 2.509100 ms  DeleteObjects: 0.076600 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.036839 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 32.75 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.275 seconds
+Registering precompiled user dll's ...
+Registered in 0.334058 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.46 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  2.626 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 55.1 MB.
+System memory in use after: 55.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2581.
+Total: 2.957500 ms (FindLiveObjects: 0.401200 ms CreateObjectMapping: 0.068400 ms MarkObjects: 2.414600 ms  DeleteObjects: 0.072900 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.017542 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 37.88 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.672 seconds
+Registering precompiled user dll's ...
+Registered in 0.358337 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.077 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.36 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 55.1 MB.
+System memory in use after: 55.2 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2591.
+Total: 3.449200 ms (FindLiveObjects: 0.484800 ms CreateObjectMapping: 0.163300 ms MarkObjects: 2.709600 ms  DeleteObjects: 0.090700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 413.091928 seconds.
+  path: Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration
+  artifactKey: Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Start importing Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration using Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Opening scene 'Assets/Scenes/Main Scene/Damage.unity additively'
+Loaded scene 'Assets/Scenes/Main Scene/Damage.unity'
+	Deserialize:            11.775 ms
+	Integration:            9.847 ms
+	Integration of assets:  0.006 ms
+	Thread Wait Time:       18.595 ms
+	Total Operation Time:   40.223 ms
+Done importing asset: 'Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration' (target hash: 'e0112f248d151e784cf6fc321c8e7d68') in 42.532652 seconds
+  Import took 42.560422 seconds.
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.034242 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 46.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.389 seconds
+Registering precompiled user dll's ...
+Registered in 0.316320 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.017 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 17 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 55.9 MB.
+System memory in use after: 56.0 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2606.
+Total: 5.048200 ms (FindLiveObjects: 0.653500 ms CreateObjectMapping: 1.661800 ms MarkObjects: 2.656400 ms  DeleteObjects: 0.075000 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.303881 seconds.
+  path: Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration
+  artifactKey: Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Start importing Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration using Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Opening scene 'Assets/Scenes/Main Scene/Damage.unity additively'
+Loaded scene 'Assets/Scenes/Main Scene/Damage.unity'
+	Deserialize:            10.027 ms
+	Integration:            11.756 ms
+	Integration of assets:  0.007 ms
+	Thread Wait Time:       19.149 ms
+	Total Operation Time:   40.939 ms
+Done importing asset: 'Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration' (target hash: 'e0112f248d151e784cf6fc321c8e7d68') in 2.727862 seconds
+  Import took 2.730178 seconds.
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.012727 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 30.97 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.310 seconds
+Registering precompiled user dll's ...
+Registered in 0.307080 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.58 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.686 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 16 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 56.4 MB.
+System memory in use after: 56.5 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2620.
+Total: 3.361300 ms (FindLiveObjects: 0.407200 ms CreateObjectMapping: 0.070000 ms MarkObjects: 2.793100 ms  DeleteObjects: 0.090100 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.037967 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 35.70 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.918 seconds
+Registering precompiled user dll's ...
+Registered in 0.332912 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.862 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 56.4 MB.
+System memory in use after: 56.5 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2630.
+Total: 3.440600 ms (FindLiveObjects: 0.501600 ms CreateObjectMapping: 0.281000 ms MarkObjects: 2.582900 ms  DeleteObjects: 0.073800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 101.838833 seconds.
+  path: Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration
+  artifactKey: Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Start importing Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration using Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Opening scene 'Assets/Scenes/Main Scene/Damage.unity additively'
+Loaded scene 'Assets/Scenes/Main Scene/Damage.unity'
+	Deserialize:            9.880 ms
+	Integration:            11.232 ms
+	Integration of assets:  0.005 ms
+	Thread Wait Time:       19.829 ms
+	Total Operation Time:   40.947 ms
+Done importing asset: 'Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration' (target hash: 'd33ecd2951832460267aba50814af9a0') in 2.437655 seconds
+  Import took 2.457415 seconds.
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.033763 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 34.64 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.571 seconds
+Registering precompiled user dll's ...
+Registered in 0.303269 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  3.836 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.38 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 56.9 MB.
+System memory in use after: 57.0 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2643.
+Total: 3.199000 ms (FindLiveObjects: 0.481800 ms CreateObjectMapping: 0.164400 ms MarkObjects: 2.465800 ms  DeleteObjects: 0.086300 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.037711 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 38.54 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.812 seconds
+Registering precompiled user dll's ...
+Registered in 0.340742 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.46 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.338 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.46 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.0 MB.
+System memory in use after: 57.0 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2653.
+Total: 3.744800 ms (FindLiveObjects: 0.692100 ms CreateObjectMapping: 0.283800 ms MarkObjects: 2.680600 ms  DeleteObjects: 0.087000 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.034082 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 33.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.275 seconds
+Registering precompiled user dll's ...
+Registered in 0.308682 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.59 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.146 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.61 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.0 MB.
+System memory in use after: 57.0 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2663.
+Total: 3.514700 ms (FindLiveObjects: 0.466200 ms CreateObjectMapping: 0.080900 ms MarkObjects: 2.885400 ms  DeleteObjects: 0.081000 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.036834 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 36.58 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.135 seconds
+Registering precompiled user dll's ...
+Registered in 0.335136 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.45 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.541 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.37 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.0 MB.
+System memory in use after: 57.1 MB.
+
+Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2673.
+Total: 4.094700 ms (FindLiveObjects: 0.492600 ms CreateObjectMapping: 0.165500 ms MarkObjects: 3.358800 ms  DeleteObjects: 0.076900 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 753.109265 seconds.
+  path: Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration
+  artifactKey: Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Start importing Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration using Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Opening scene 'Assets/Scenes/Main Scene/Damage.unity additively'
+Loaded scene 'Assets/Scenes/Main Scene/Damage.unity'
+	Deserialize:            11.477 ms
+	Integration:            22.282 ms
+	Integration of assets:  0.009 ms
+	Thread Wait Time:       18.064 ms
+	Total Operation Time:   51.833 ms
+Done importing asset: 'Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration' (target hash: '9eaeb89c119ba58bb0d851bf8aa6d7f7') in 2.554457 seconds
+  Import took 2.557296 seconds.
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.039175 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 35.84 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.307 seconds
+Registering precompiled user dll's ...
+Registered in 0.329011 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.48 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.164 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 18 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 57.6 MB.
+System memory in use after: 57.7 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2689.
+Total: 3.172300 ms (FindLiveObjects: 0.519800 ms CreateObjectMapping: 0.174600 ms MarkObjects: 2.405300 ms  DeleteObjects: 0.070800 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 132.176347 seconds.
+  path: Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration
+  artifactKey: Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Start importing Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration using Guid(0d659df821d61c192b1d06722d6236c7) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Opening scene 'Assets/Scenes/Main Scene/Damage.unity additively'
+Loaded scene 'Assets/Scenes/Main Scene/Damage.unity'
+	Deserialize:            9.154 ms
+	Integration:            10.207 ms
+	Integration of assets:  0.004 ms
+	Thread Wait Time:       10.063 ms
+	Total Operation Time:   29.427 ms
+The referenced script is missing on Player
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+Unity.Entities.Conversion.JournalingUnityLogger:LogFormat(LogType, Object, String, Object[]) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\JournalingUnityLogger.cs:41)
+UnityEngine.Logger:Log(LogType, Object, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+Unity.Debug:LogWarning(String, Object) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities\Stubs\Unity\Debug.cs:25)
+Unity.Entities.Conversion.UnityEngineExtensions:GetComponents(GameObject, ComponentType*, Int32, List`1) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\UnityEngineExtensions.cs:127)
+Unity.Entities.Conversion.GameObjectConversionMappingSystem:CreateGameObjectEntity(GameObject) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\GameObjectConversionMappingSystem.cs:738)
+Unity.Entities.Conversion.GameObjectConversionMappingSystem:CreateEntitiesForGameObjectsRecurse(Transform, HashSet`1) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\GameObjectConversionMappingSystem.cs:786)
+Unity.Entities.Conversion.GameObjectConversionMappingSystem:CreateEntitiesForGameObjects(Scene) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\GameObjectConversionMappingSystem.cs:799)
+Unity.Entities.GameObjectConversionUtility:ConvertScene(Scene, GameObjectConversionSettings) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\GameObjectConversionUtility.cs:256)
+Unity.Scenes.Editor.EditorEntityScenes:WriteEntityScene(Scene, GameObjectConversionSettings, List`1) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Scenes.Editor\EditorEntityScenes.cs:100)
+Unity.Scenes.Editor.SubSceneImporter:OnImportAsset(AssetImportContext) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Scenes.Editor\SubSceneImporter.cs:166)
+UnityEditor.Experimental.AssetImporters.ScriptedImporter:GenerateAssetData(AssetImportContext)
+ 
+(Filename: Library/PackageCache/com.unity.entities@0.6.0-preview.24/Unity.Entities.Hybrid/GameObjectConversion/JournalingUnityLogger.cs Line: 41)
+
+The referenced script is missing on Player
+UnityEngine.DebugLogHandler:Internal_Log(LogType, LogOption, String, Object)
+UnityEngine.DebugLogHandler:LogFormat(LogType, Object, String, Object[])
+Unity.Entities.Conversion.JournalingUnityLogger:LogFormat(LogType, Object, String, Object[]) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\JournalingUnityLogger.cs:41)
+UnityEngine.Logger:Log(LogType, Object, Object)
+UnityEngine.Debug:LogWarning(Object, Object)
+Unity.Debug:LogWarning(String, Object) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities\Stubs\Unity\Debug.cs:25)
+Unity.Entities.Conversion.UnityEngineExtensions:GetComponents(GameObject, ComponentType*, Int32, List`1) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\UnityEngineExtensions.cs:127)
+Unity.Entities.Conversion.GameObjectConversionMappingSystem:CreateGameObjectEntity(GameObject) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\GameObjectConversionMappingSystem.cs:738)
+Unity.Entities.Conversion.GameObjectConversionMappingSystem:CreateEntitiesForGameObjectsRecurse(Transform, HashSet`1) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\GameObjectConversionMappingSystem.cs:786)
+Unity.Entities.Conversion.GameObjectConversionMappingSystem:CreateEntitiesForGameObjects(Scene) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\GameObjectConversionMappingSystem.cs:799)
+Unity.Entities.GameObjectConversionUtility:ConvertScene(Scene, GameObjectConversionSettings) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Entities.Hybrid\GameObjectConversion\GameObjectConversionUtility.cs:256)
+Unity.Scenes.Editor.EditorEntityScenes:WriteEntityScene(Scene, GameObjectConversionSettings, List`1) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Scenes.Editor\EditorEntityScenes.cs:100)
+Unity.Scenes.Editor.SubSceneImporter:OnImportAsset(AssetImportContext) (at Library\PackageCache\com.unity.entities@0.6.0-preview.24\Unity.Scenes.Editor\SubSceneImporter.cs:166)
+UnityEditor.Experimental.AssetImporters.ScriptedImporter:GenerateAssetData(AssetImportContext)
+ 
+(Filename: Library/PackageCache/com.unity.entities@0.6.0-preview.24/Unity.Entities.Hybrid/GameObjectConversion/JournalingUnityLogger.cs Line: 41)
+
+Done importing asset: 'Assets/SceneDependencyCache/0d659df821d61c192b1d06722d6236c7.sceneWithBuildConfiguration' (target hash: 'ceec1c56ac3d8cad3eed6877296f272e') in 2.476186 seconds
+  Import took 2.490783 seconds.
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.055823 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 31.89 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.117 seconds
+Registering precompiled user dll's ...
+Registered in 0.306406 seconds.
+Platform modules already initialized, skipping
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.62 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  5.543 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.46 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 15 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 58.1 MB.
+System memory in use after: 58.2 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2702.
+Total: 2.999500 ms (FindLiveObjects: 0.590700 ms CreateObjectMapping: 0.078200 ms MarkObjects: 2.244200 ms  DeleteObjects: 0.084900 ms)
+
+========================================================================
+Received Prepare
+Reloading mono domain
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.035394 seconds.
+Symbol file LoadedFromMemory doesn't match image C:\Users\Alexei\Desktop\SwarmSimulation\SwarmSimulation\Swarm\Library\PackageCache\com.unity.ext.nunit@1.0.0\net35\unity-custom\nunit.framework.dll
+Native extension for WebGL target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 51.32 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
