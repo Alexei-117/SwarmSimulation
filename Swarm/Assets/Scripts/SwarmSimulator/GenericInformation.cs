@@ -1,17 +1,33 @@
-﻿using Unity.Entities;
+﻿using Swarm.Movement;
+using Swarm.Scenario;
+using Swarm.Swarm;
+using Unity.Collections;
+using Unity.Entities;
 using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
+using Light = Swarm.Scenario.Light;
 
 namespace Swarm
 {
     public class GenericInformation : MonoBehaviour
     {
+        [Header("Meta data")]
+        [SerializeField] public float TimeStep;
+
+        [Header("Agents data")]
+        [SerializeField] public float AgentSize;
+
+        [Header("Layout data")]
+        [SerializeField] public float LayoutWidth;
+        [SerializeField] public float LayoutHeight;
+
         public static ComponentType[] GetGenericComponents()
         {
             return new ComponentType[]
             {
                 typeof(Translation),
+                typeof(PreviousTranslation),
                 typeof(Rotation),
                 typeof(LocalToWorld),
                 typeof(RenderMesh),
@@ -41,5 +57,49 @@ namespace Swarm
 
             return returnComponents;
         }
+
+        public float GetLayoutWidth()
+        {
+            return LayoutWidth * AgentSize;
+        }
+
+        public float GetLayoutHeight()
+        {
+            return LayoutHeight * AgentSize;
+        }
+
+        public void SetEntityManager(EntityManager entityManager)
+        {
+            this.entityManager = entityManager;
+        }
+
+        public void SetData()
+        {
+            EntityQuery agentQuery = entityManager.CreateEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>(), ComponentType.ReadOnly<PotentialFieldAgent>());
+            agentsTranslations = agentQuery.ToComponentDataArray<Translation>(Allocator.Persistent);
+            agentsPotentials = agentQuery.ToComponentDataArray<PotentialFieldAgent>(Allocator.Persistent);
+            
+            lightsTranslations = entityManager.CreateEntityQuery(ComponentType.ReadOnly<Light>(), ComponentType.ReadOnly<Translation>()).ToComponentDataArray<Translation>(Allocator.Persistent);
+            lights = entityManager.CreateEntityQuery(ComponentType.ReadOnly<Light>(), ComponentType.ReadOnly<Translation>()).ToComponentDataArray<Light>(Allocator.Persistent);
+        }
+
+        public void OnDestroy()
+        {
+            agentsTranslations.Dispose();
+            agentsPotentials.Dispose();
+
+            lightsTranslations.Dispose();
+            lights.Dispose();
+        }
+
+        /*Generic*/
+        private EntityManager entityManager;
+
+        /*Data*/
+        public NativeArray<Translation> agentsTranslations;
+        public NativeArray<PotentialFieldAgent> agentsPotentials;
+
+        public NativeArray<Translation> lightsTranslations;
+        public NativeArray<Light> lights;
     }
 }

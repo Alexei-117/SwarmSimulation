@@ -10,8 +10,6 @@ namespace Swarm.Grid
     public class GridSpawner : MonoBehaviour
     {
         /* Grid metadata */
-        [SerializeField] private float gridWidth;
-        [SerializeField] private float gridHeight;
         [SerializeField] private float gridSpacing;
         [SerializeField] private float gridInitialHeight;
 
@@ -22,19 +20,23 @@ namespace Swarm.Grid
         /* Movement data */
         [SerializeField] private float speed;
 
+        /* Generic metadata */
         private EntityManager entityManager;
         private EntityArchetype gridDotArchetype;
 
-        void Start()
+        /* Grid metadata */
+        private float gridWidth;
+        private float gridHeight;
+
+        public void Initialize()
         {
-            SetupEntityManager();
             SetupGridDotArchetype();
             MakeGrid();
         }
 
         private void MakeGrid()
         {
-            for(int x = 0; x < gridWidth; x++)
+            for (int x = 0; x < gridWidth; x++)
             {
                 for(int z = 0; z < gridHeight; z++)
                 {
@@ -77,11 +79,6 @@ namespace Swarm.Grid
             return entity;
         }
 
-        private void SetupEntityManager()
-        {
-            entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        }
-
         private void SetupGridDotArchetype()
         {
             ComponentType[] components = GenericInformation.GetGenericComponents();
@@ -95,6 +92,17 @@ namespace Swarm.Grid
             });
 
             gridDotArchetype = entityManager.CreateArchetype(components);
+        }
+
+        public void SetLayoutLimits(float width, float height)
+        {
+            gridWidth = width;
+            gridHeight = height;
+        }
+
+        public void SetEntityManager(EntityManager entityManager)
+        {
+            this.entityManager = entityManager;
         }
     }
 }

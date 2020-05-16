@@ -26,9 +26,8 @@ namespace Swarm.Scenario
         private EntityArchetype agentArchetype;
 
 
-        void Start()
+        public void Initialize()
         {
-            SetupEntityManager();
             SetupLightArchetype();
             SpawnLight();
         }
@@ -63,10 +62,6 @@ namespace Swarm.Scenario
             return entity;
         }
 
-        private void SetupEntityManager()
-        {
-            entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-        }
         private void SetupLightArchetype()
         {
             ComponentType[] components = GenericInformation.GetGenericComponents();
@@ -76,6 +71,11 @@ namespace Swarm.Scenario
             });
 
             agentArchetype = entityManager.CreateArchetype(components);
+        }
+
+        public void SetEntityManager(EntityManager entityManager)
+        {
+            this.entityManager = entityManager;
         }
     }
 }
