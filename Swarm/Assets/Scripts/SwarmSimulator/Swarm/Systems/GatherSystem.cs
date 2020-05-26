@@ -10,23 +10,20 @@ using Light = Swarm.Scenario.Light;
 namespace Swarm.Swarm
 {
     [UpdateBefore(typeof(TransferSystem))]
-    public class GatherSystem : SystemBase
+    public class GatherSystem : SystemBaseManageable
     {
-        public NativeArray<Translation> lightsTranslations;
-        public NativeArray<Light> lights;
-
         protected override void OnCreate()
         {
             base.OnCreate();
-            Enabled = false;
+            Name = "Gather";
         }
 
         protected override void OnUpdate()
         {
             // Initialise variables
-            NativeArray<float3> lightsPositions = lightsTranslations.Reinterpret<float3>();
+            NativeArray<float3> lightsPositions = GenericInformation.GetLightTranslations.Reinterpret<float3>();
 
-            NativeArray<float> lightsSizes = lights.Reinterpret<float>();
+            NativeArray<float> lightsSizes = GenericInformation.GetLights.Reinterpret<float>();
 
             float time = Time.DeltaTime;
             this.Dependency = Entities.WithAll<AgentTag>().ForEach((ref PotentialFieldAgent potentialField, in Translation t, in Gather gather) =>
@@ -36,6 +33,7 @@ namespace Swarm.Swarm
                 {
                     if (math.distance(new float2(t.Value.x, t.Value.z), new float2(lightsPositions[i].x, lightsPositions[i].z)) <= lightsSizes[i])
                     {
+                        //potentialField.Value += gather.Value * time;
                         potentialField.Value += gather.Value * time;
                     }
                 }

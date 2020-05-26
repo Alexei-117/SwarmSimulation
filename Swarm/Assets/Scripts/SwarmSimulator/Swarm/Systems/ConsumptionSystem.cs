@@ -3,12 +3,12 @@
 namespace Swarm.Swarm
 {
     [UpdateBefore(typeof(FindHighestGradientSystem))]
-    public class ConsumptionSystem : SystemBase
+    public class ConsumptionSystem : SystemBaseManageable
     {
         protected override void OnCreate()
         {
             base.OnCreate();
-            Enabled = false;
+            Name = "Consumption";
         }
 
         protected override void OnUpdate()

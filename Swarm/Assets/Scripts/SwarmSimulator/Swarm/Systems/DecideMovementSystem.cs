@@ -6,12 +6,12 @@ using UnityEngine;
 namespace Swarm.Swarm
 {
     [UpdateBefore(typeof(MoveForwardSystem))]
-    public class DecideMovementSystem : SystemBase
+    public class DecideMovementSystem : SystemBaseManageable
     {
         protected override void OnCreate()
         {
             base.OnCreate();
-            Enabled = false;
+            Name = "DecideMovement";
         }
 
         protected override void OnUpdate()

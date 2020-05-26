@@ -1,5 +1,4 @@
 ﻿using Swarm.Movement;
-using Swarm.Scenario;
 using Swarm.Swarm;
 using Unity.Collections;
 using Unity.Entities;
@@ -75,20 +74,28 @@ namespace Swarm
 
         public void SetData()
         {
-            EntityQuery agentQuery = entityManager.CreateEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>(), ComponentType.ReadOnly<PotentialFieldAgent>());
-            agentsTranslations = agentQuery.ToComponentDataArray<Translation>(Allocator.Persistent);
-            agentsPotentials = agentQuery.ToComponentDataArray<PotentialFieldAgent>(Allocator.Persistent);
-            
-            lightsTranslations = entityManager.CreateEntityQuery(ComponentType.ReadOnly<Light>(), ComponentType.ReadOnly<Translation>()).ToComponentDataArray<Translation>(Allocator.Persistent);
-            lights = entityManager.CreateEntityQuery(ComponentType.ReadOnly<Light>(), ComponentType.ReadOnly<Translation>()).ToComponentDataArray<Light>(Allocator.Persistent);
+            if (isDataSet)
+                return;
+
+            isDataSet = true;
+
+            agentsTranslations = entityManager.CreateEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>(), ComponentType.ReadOnly<PotentialFieldAgent>())
+                .ToComponentDataArray<Translation>(Allocator.Persistent);
+            agentsPotentials = entityManager.CreateEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>(), ComponentType.ReadOnly<PotentialFieldAgent>())
+                .ToComponentDataArray<PotentialFieldAgent>(Allocator.Persistent);
+
+            lightTranslations = entityManager.CreateEntityQuery(ComponentType.ReadOnly<Light>(), ComponentType.ReadOnly<Translation>())
+                .ToComponentDataArray<Translation>(Allocator.Persistent);
+            lights = entityManager.CreateEntityQuery(ComponentType.ReadOnly<Light>(), ComponentType.ReadOnly<Translation>())
+                .ToComponentDataArray<Light>(Allocator.Persistent);
         }
 
-        public void OnDestroy()
+        public void OnDisable()
         {
             agentsTranslations.Dispose();
             agentsPotentials.Dispose();
 
-            lightsTranslations.Dispose();
+            lightTranslations.Dispose();
             lights.Dispose();
         }
 
@@ -96,10 +103,46 @@ namespace Swarm
         private EntityManager entityManager;
 
         /*Data*/
-        public NativeArray<Translation> agentsTranslations;
-        public NativeArray<PotentialFieldAgent> agentsPotentials;
+        private bool isDataSet;
 
-        public NativeArray<Translation> lightsTranslations;
-        public NativeArray<Light> lights;
+        private NativeArray<Translation> agentsTranslations;
+        public NativeArray<Translation> GetAgentsTranslations
+        {
+            get
+            {
+                SetData();
+                return agentsTranslations;
+            }
+        }
+
+        private NativeArray<PotentialFieldAgent> agentsPotentials;
+        public NativeArray<PotentialFieldAgent> GetAgentsPotentials
+        {
+            get
+            {
+                SetData();
+                return agentsPotentials;
+            }
+        }
+
+        private NativeArray<Translation> lightTranslations;
+        public NativeArray<Translation> GetLightTranslations
+        {
+            get
+            {
+                SetData();
+                return lightTranslations;
+            }
+        }
+
+        private NativeArray<Light> lights;
+        public NativeArray<Light> GetLights
+        {
+            get
+            {
+                SetData();
+                return lights;
+            }
+        }
     }
 }

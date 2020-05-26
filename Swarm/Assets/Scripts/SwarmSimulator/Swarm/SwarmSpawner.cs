@@ -2,6 +2,7 @@
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
+using Unity.Physics.Systems;
 using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
@@ -28,6 +29,7 @@ namespace Swarm.Swarm
         [SerializeField] private float communicationDistance;
         [SerializeField] private float transferRate;
         [SerializeField] private float consumptionRate;
+        [SerializeField] private GameObject agentWithPhysics;
 
         /* Grid dots data */
         [Header("Rendering")]
@@ -37,24 +39,22 @@ namespace Swarm.Swarm
         private float gridWidth;
         private float gridHeight;
 
+        private Entity entityWithPhysics;
         private EntityManager entityManager;
-        private EntityArchetype agentArchetype;
-        private Entity agentEntity;
+        private BlobAssetStore asset;
 
         public void Initialize()
         {
-            GetEntityToClon();
-            SetupAgentArchetype();
             SpawnAgents();
-        }
-
-        private void GetEntityToClon()
-        {
-            agentEntity = entityManager.CreateEntityQuery(ComponentType.ReadOnly<AgentTag>()).GetSingletonEntity();
         }
 
         private void SpawnAgents()
         {
+            //[COMMENT] Should I use blob assets for the common variables that they will all access? since they won't be different
+            asset = new BlobAssetStore();
+            entityWithPhysics = GameObjectConversionUtility.ConvertGameObjectHierarchy(agentWithPhysics,
+                GameObjectConversionSettings.FromWorld(entityManager.World, asset ));
+
             Random random = new Random();
             random.InitState((uint)200);
 
@@ -66,15 +66,26 @@ namespace Swarm.Swarm
 
         private Entity CreateAgent(float x, float z, uint seed)
         {
-            
-            Entity entity = entityManager.CreateEntity(agentArchetype);
+            BlobAssetReference<Collider> sourceCollider = entityManager.GetComponentData<PhysicsCollider>(entityWithPhysics).Value;
 
-            entityManager.AddComponentData<Translation>(entity, new Translation
+            //Entity entity = entityManager.CreateEntity(agentArchetype);
+            Entity entity = entityManager.Instantiate(entityWithPhysics);
+
+            entityManager.SetComponentData<Translation>(entity, new Translation
             {
                 Value = new float3(x, 0f, z)
             });
 
-            /*entityManager.AddComponentData<PreviousTranslation>(entity, new PreviousTranslation
+            entityManager.SetComponentData<PhysicsCollider>(entity, new PhysicsCollider
+            {
+                Value = sourceCollider
+            });
+
+            entityManager.AddComponentData<AgentTag>(entity, new AgentTag());
+            entityManager.AddComponentData<MoveForward>(entity, new MoveForward());
+            entityManager.AddComponentData<RenderBounds>(entity, new RenderBounds());
+
+            entityManager.AddComponentData<PreviousTranslation>(entity, new PreviousTranslation
             {
                 Value = new float3(x, 0f, z)
             });
@@ -133,82 +144,7 @@ namespace Swarm.Swarm
                 Value = consumptionRate
             });
 
-            /*SphereGeometry sphereGeometry = new SphereGeometry()
-            {
-                Center = new float3(0.0f),
-                Radius = communicationDistance
-            };
-
-            Unity.Physics.Material material = Unity.Physics.Material.Default;
-            material.Flags = Unity.Physics.Material.MaterialFlags.IsTrigger;
-
-            BlobAssetReference<Collider> spCollider = SphereCollider.Create(sphereGeometry, CollisionFilter.Default, material);
-            entityManager.AddComponentData<PhysicsCollider>(entity, new PhysicsCollider
-            {
-                Value = spCollider
-            });
-
-            unsafe
-            {
-                Collider* colliderPtr = (Collider*)spCollider.GetUnsafePtr();
-                entityManager.AddComponentData<PhysicsMass>(entity, PhysicsMass.CreateDynamic(colliderPtr->MassProperties, 1));
-            }
-
-            entityManager.SetComponentData<PhysicsVelocity>(entity, new PhysicsVelocity
-            {
-                Linear = 0.0f,
-                Angular = 0.00f
-            });
-
-            entityManager.SetComponentData<PhysicsDamping>(entity, new PhysicsDamping
-            {
-                Linear = 0.0f,
-                Angular = 0.00f
-            });
-
-            entityManager.SetComponentData<PhysicsGravityFactor>(entity, new PhysicsGravityFactor
-            {
-                Value = 0.0f
-            });*/
-
-            entityManager.SetComponentData<PhysicsCollider>(entity,
-                entityManager.GetComponentData<PhysicsCollider>(agentEntity));
-
-            entityManager.SetComponentData<PhysicsMass>(entity,
-                entityManager.GetComponentData<PhysicsMass>(agentEntity));
-
-            entityManager.SetComponentData<PhysicsVelocity>(entity,
-                entityManager.GetComponentData<PhysicsVelocity>(agentEntity));
-
-            entityManager.SetComponentData<PhysicsGravityFactor>(entity,
-                entityManager.GetComponentData<PhysicsGravityFactor>(agentEntity));
-
             return entity;
-        }
-
-        private void SetupAgentArchetype()
-        {
-            ComponentType[] components = GenericInformation.GetGenericComponents();
-            components = GenericInformation.AddComponents(components, new ComponentType[]
-            {
-                /*typeof(AgentTag),
-                typeof(Speed),
-                typeof(MoveForward),
-                typeof(RandomData),
-                typeof(HorizontalLimits),
-                typeof(Gather),
-                typeof(PotentialFieldAgent),
-                typeof(Collision),
-                typeof(Consumption),*/
-                typeof(PhysicsCollider),
-                typeof(PhysicsVelocity),
-                typeof(PhysicsMass),
-                typeof(PhysicsGravityFactor)
-                /*typeof(PhysicsDamping),
-                typeof(HighestPotentialAgent)*/
-            });
-            
-            agentArchetype = entityManager.CreateArchetype(components);
         }
 
         public void SetLayoutLimits(float width, float height)
@@ -220,6 +156,11 @@ namespace Swarm.Swarm
         public void SetEntityManager(EntityManager entityManager)
         {
             this.entityManager = entityManager;
+        }
+
+        private void OnDisable()
+        {
+            asset.Dispose();
         }
     }
 }
