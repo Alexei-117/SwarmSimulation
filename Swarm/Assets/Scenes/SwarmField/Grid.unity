@@ -453,12 +453,14 @@ MonoBehaviour:
   - FindHighestGradient
   - DecideMovement
   - MoveForward
+  - AgentCollision
+  - BoundaryCollision
+  - RestoreCollidedPosition
+  - CleanCollision
   PerFrameSystems:
   - Gather
   - Transfer
   - Consumption
-  - FindHighestGradient
-  - DecideMovement
 --- !u!1 &1943328597
 GameObject:
   m_ObjectHideFlags: 0
