@@ -3,12 +3,12 @@ using Unity.Transforms;
 
 namespace Swarm.Movement
 {
-    public class MoveForwardSystem : SystemBase
+    public class MoveForwardSystem : SystemBaseManageable
     {
         protected override void OnCreate()
         {
             base.OnCreate();
-            Enabled = false;
+            Name = "MoveForward";
         }
 
         protected override void OnUpdate()

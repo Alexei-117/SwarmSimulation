@@ -23,13 +23,13 @@ namespace Swarm.Swarm
             stepPhysicsWorld = World.GetOrCreateSystem<StepPhysicsWorld>();
         }
 
+        [BurstCompile]
         struct TransferJob : ITriggerEventsJob
         {
             public ComponentDataFromEntity<PotentialFieldAgent> potentialGroup;
 
             public void Execute(TriggerEvent triggerEvent)
             {
-
                 Entity entityA = triggerEvent.Entities.EntityA;
                 Entity entityB = triggerEvent.Entities.EntityB;
 
@@ -64,8 +64,6 @@ namespace Swarm.Swarm
 
                 potentialGroup[entityA] = potentialA;
                 potentialGroup[entityB] = potentialB;
-
-                //Debug.Log("Post: " + potentialA.Value + " - " + potentialB.Value + ". Difference: " + difference);
             }
         }
 

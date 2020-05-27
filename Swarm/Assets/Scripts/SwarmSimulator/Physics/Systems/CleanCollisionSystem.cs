@@ -4,12 +4,12 @@ using Unity.Entities;
 namespace Swarm.Swarm
 {
     [UpdateAfter(typeof(RestoreCollidedPositionSystem))]
-    public class CleanCollisionSystem : SystemBase
+    public class CleanCollisionSystem : SystemBaseManageable
     {
         protected override void OnCreate()
         {
             base.OnCreate();
-            Enabled = false;
+            Name = "CleanCollision";
         }
 
         protected override void OnUpdate()

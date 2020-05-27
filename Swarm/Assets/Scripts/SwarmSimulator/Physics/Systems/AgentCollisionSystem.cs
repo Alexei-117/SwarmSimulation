@@ -4,80 +4,73 @@ using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
+using Unity.Physics;
+using Unity.Physics.Systems;
 using Unity.Transforms;
 
 namespace Swarm.Movement
 {
     [UpdateAfter(typeof(MoveForwardSystem))]
     [UpdateBefore(typeof(RestoreCollidedPositionSystem))]
-    public class AgentCollisionSystem : SystemBase
+    public class AgentCollisionSystem : SystemBaseManageable
     {
-        [BurstCompile]
-        struct AgentCollisionJob : IJobParallelFor
-        {
-            [ReadOnly]
-            public NativeArray<float3> agentPositions;
-
-            [ReadOnly]
-            public float3 agentPosition;
-
-            [ReadOnly]
-            public float collisionSize;
-
-            public NativeArray<bool> collided;
-
-            public void Execute(int index)
-            {
-                if (!agentPosition.Equals(agentPositions[index])
-                    && math.distance(agentPosition, agentPositions[index]) <= collisionSize)
-                {
-                    collided[index] = true;
-                }
-            }
-        }
+        private BuildPhysicsWorld buildPhysicsWorld;
+        private StepPhysicsWorld stepPhysicsWorld;
 
         protected override void OnCreate()
         {
             base.OnCreate();
-            Enabled = false;
+            Name = "AgentCollision";
+
+            buildPhysicsWorld = World.GetOrCreateSystem<BuildPhysicsWorld>();
+            stepPhysicsWorld = World.GetOrCreateSystem<StepPhysicsWorld>();
+        }
+
+        [BurstCompile]
+        struct AgentCollisionJob : ITriggerEventsJob
+        {
+            public ComponentDataFromEntity<Translation> translationGroup;
+            public ComponentDataFromEntity<Collision> collisionGroup;
+
+            public void Execute(TriggerEvent triggerEvent)
+            {
+                Entity entityA = triggerEvent.Entities.EntityA;
+                Entity entityB = triggerEvent.Entities.EntityB;
+
+                if (!collisionGroup.Exists(entityA)
+                    || !collisionGroup.Exists(entityB))
+                {
+                    return;
+                }
+
+                Translation translationA = translationGroup[entityA];
+                Translation translationB = translationGroup[entityB];
+
+                Collision collisionA = collisionGroup[entityA];
+                Collision collisionB = collisionGroup[entityB];
+
+                if (math.distance(translationA.Value, translationB.Value) <= collisionA.Radius)
+                {
+                    collisionA.Collided = true;
+                    collisionB.Collided = true;
+
+                    collisionGroup[entityA] = collisionA;
+                    collisionGroup[entityB] = collisionB;
+                }
+            }
         }
 
         protected override void OnUpdate()
         {
-            // Initialise variables
-            NativeArray<float3> agentsPositions = GetEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>())
-                                                  .ToComponentDataArray<Translation>(Allocator.TempJob)
-                                                  .Reinterpret<float3>();
-
-            Entities.WithoutBurst().ForEach((ref Collision c, in Translation t) =>
+            var agentCollisionJob = new AgentCollisionJob()
             {
-                NativeArray<bool> anyCollision = new NativeArray<bool>(agentsPositions.Length, Allocator.TempJob);
+                translationGroup = GetComponentDataFromEntity<Translation>(),
+                collisionGroup = GetComponentDataFromEntity<Collision>()
+            };
 
-                // Create and run job
-                AgentCollisionJob job = new AgentCollisionJob()
-                {
-                    agentPositions = agentsPositions,
-                    agentPosition = t.Value,
-                    collisionSize = c.Radius,
-                    collided = anyCollision
-                };
+            this.Dependency = agentCollisionJob.Schedule(stepPhysicsWorld.Simulation, ref buildPhysicsWorld.PhysicsWorld, this.Dependency);
 
-                JobHandle jobHandle = job.Schedule(agentsPositions.Length, 64);
-
-                jobHandle.Complete();
-
-                for(int i = 0; i < anyCollision.Length; i++)
-                {
-                    if (anyCollision[i])
-                    {
-                        c.Collided = true;
-                    }
-                }
-
-                anyCollision.Dispose();
-            }).Run();
-
-            agentsPositions.Dispose();
+            Dependency.Complete();
         }
     }
 }

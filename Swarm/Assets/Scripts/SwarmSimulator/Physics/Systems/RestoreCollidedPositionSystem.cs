@@ -5,12 +5,12 @@ using Unity.Transforms;
 namespace Swarm.Movement
 {
     [UpdateAfter(typeof(MoveForwardSystem))]
-    public class RestoreCollidedPositionSystem : SystemBase
+    public class RestoreCollidedPositionSystem : SystemBaseManageable
     {
         protected override void OnCreate()
         {
             base.OnCreate();
-            Enabled = false;
+            Name = "RestoreCollidedPosition";
         }
 
         protected override void OnUpdate()

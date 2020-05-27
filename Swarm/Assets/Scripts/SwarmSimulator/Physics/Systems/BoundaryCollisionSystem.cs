@@ -7,12 +7,12 @@ namespace Swarm.Movement
 {
     [UpdateAfter(typeof(MoveForwardSystem))]
     [UpdateBefore(typeof(RestoreCollidedPositionSystem))]
-    public class BoundaryCollisionSystem : SystemBase
+    public class BoundaryCollisionSystem : SystemBaseManageable
     {
         protected override void OnCreate()
         {
             base.OnCreate();
-            Enabled = false;
+            Name = "BoundaryCollision";
         }
 
         protected override void OnUpdate()
