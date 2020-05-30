@@ -15,12 +15,12 @@ namespace Swarm.Movement
 
         protected override void OnUpdate()
         {
-            float deltaTime = Time.DeltaTime;
-            Entities.WithAll<AgentTag>().ForEach((ref Translation t, in Collision c, in PreviousTranslation pt) =>
+            Entities.WithAll<AgentTag>().ForEach((ref Translation t, ref Collision c, in PreviousTranslation pt) =>
             {
                 if (c.Collided)
                 {
                     t.Value = pt.Value;
+                    c.Collided = false;
                 }
             }).ScheduleParallel();
         }

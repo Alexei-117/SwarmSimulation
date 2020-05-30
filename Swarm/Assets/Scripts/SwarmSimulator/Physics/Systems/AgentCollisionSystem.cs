@@ -28,7 +28,7 @@ namespace Swarm.Movement
         [BurstCompile]
         struct AgentCollisionJob : ITriggerEventsJob
         {
-            public ComponentDataFromEntity<Translation> translationGroup;
+            [ReadOnly] public ComponentDataFromEntity<Translation> translationGroup;
             public ComponentDataFromEntity<Collision> collisionGroup;
 
             public void Execute(TriggerEvent triggerEvent)

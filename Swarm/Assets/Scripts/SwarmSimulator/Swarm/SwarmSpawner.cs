@@ -68,7 +68,6 @@ namespace Swarm.Swarm
         {
             BlobAssetReference<Collider> sourceCollider = entityManager.GetComponentData<PhysicsCollider>(entityWithPhysics).Value;
 
-            //Entity entity = entityManager.CreateEntity(agentArchetype);
             Entity entity = entityManager.Instantiate(entityWithPhysics);
 
             entityManager.SetComponentData<Translation>(entity, new Translation

@@ -450,13 +450,12 @@ MonoBehaviour:
   - Gather
   - Transfer
   - Consumption
-  - FindHighestGradient
+  - 
   - DecideMovement
   - MoveForward
   - AgentCollision
   - BoundaryCollision
   - RestoreCollidedPosition
-  - CleanCollision
   PerFrameSystems:
   - Gather
   - Transfer
