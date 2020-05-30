@@ -629,3 +629,19 @@ System memory in use after: 55.5 MB.
 Unloading 14 unused Assets to reduce memory usage. Loaded Objects now: 2693.
 Total: 2.593200 ms (FindLiveObjects: 0.342500 ms CreateObjectMapping: 0.079800 ms MarkObjects: 2.126500 ms  DeleteObjects: 0.043900 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 3627.243734 seconds.
+  path: Assets/SceneDependencyCache/b1877dc4c2f869907f23fd9248b3a542.sceneWithBuildConfiguration
+  artifactKey: Guid(b1877dc4c2f869907f23fd9248b3a542) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Start importing Assets/SceneDependencyCache/b1877dc4c2f869907f23fd9248b3a542.sceneWithBuildConfiguration using Guid(b1877dc4c2f869907f23fd9248b3a542) Importer(2089858483,52bed625d08a7023a15481c3fbd73797)
+Opening scene 'Assets/Scenes/SwarmField/Grid.unity additively'
+Loaded scene 'Assets/Scenes/SwarmField/Grid.unity'
+	Deserialize:            7.874 ms
+	Integration:            3.613 ms
+	Integration of assets:  0.011 ms
+	Thread Wait Time:       11.656 ms
+	Total Operation Time:   23.153 ms
+Done importing asset: 'Assets/SceneDependencyCache/b1877dc4c2f869907f23fd9248b3a542.sceneWithBuildConfiguration' (target hash: '18b9e4bf8975a2969677474efad15016') in 4.221595 seconds
+  Import took 4.225417 seconds.
+
