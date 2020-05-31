@@ -1,6 +1,7 @@
 ﻿using Swarm.Grid;
 using Swarm.Scenario;
 using Swarm.Swarm;
+using System;
 using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
@@ -34,6 +35,7 @@ namespace Swarm
             genericInformation.SetEntityManager(entityManager);
             genericInformation.SetData();
 
+            InitializeSystems();
             RunSystems();
         }
 
@@ -55,6 +57,7 @@ namespace Swarm
         {
             swarmSpawner.SetLayoutLimits(genericInformation.GetLayoutWidth(), genericInformation.GetLayoutHeight());
             swarmSpawner.SetEntityManager(entityManager);
+            swarmSpawner.SetNumberOfAgents(genericInformation.NumberOfAgents);
             swarmSpawner.Initialize();
         }
 
@@ -70,6 +73,17 @@ namespace Swarm
         {
             lightSpawner.SetEntityManager(entityManager);
             lightSpawner.Initialize();
+        }
+
+        private void InitializeSystems()
+        {
+            foreach (SystemBaseManageable system in systems)
+            {
+                if (RunningSystems.Contains(system.Name))
+                {
+                    system.InitializeData();
+                }
+            }
         }
 
         private void RunSystems()

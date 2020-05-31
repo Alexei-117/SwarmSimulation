@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Diagnostics;
+using System.Linq;
 using Swarm.Swarm;
 using Unity.Burst;
 using Unity.Collections;
@@ -9,78 +11,43 @@ using Unity.Transforms;
 
 namespace Swarm.Grid
 {
-    public class AccumulateAgentsSystem : SystemBase
+    public class AccumulateAgentsSystem : SystemBaseManageable
     {
-        [BurstCompile]
-        struct AccumulateAgentsJob : IJobParallelFor
-        {
-            [ReadOnly]
-            public NativeArray<float3> agentPositions;
-
-            [ReadOnly]
-            public float4 gridDotDetectionBoundary;
-
-            public NativeArray<bool> nearTheGridDot;
-
-            public void Execute(int index)
-            {
-                if ( gridDotDetectionBoundary.x <= agentPositions[index].x
-                    && gridDotDetectionBoundary.y > agentPositions[index].x
-                    && gridDotDetectionBoundary.z <= agentPositions[index].z
-                    && gridDotDetectionBoundary.w > agentPositions[index].z)
-                {
-                    nearTheGridDot[index] = true;
-                }
-            }
-        }
-
         protected override void OnCreate()
         {
             base.OnCreate();
-            Enabled = false;
+            Name = "AccumulateAgents";
         }
 
         protected override void OnUpdate()
         {
-            // Initialise variables
-            NativeArray<float3> agentsPositions = GetEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>())
-                                                  .ToComponentDataArray<Translation>(Allocator.TempJob)
-                                                  .Reinterpret<float3>();
+            NativeMultiHashMap<int, Translation> agents = new NativeMultiHashMap<int, Translation>(
+                (int)(GenericInformation.LayoutWidth * GenericInformation.LayoutHeight), Allocator.TempJob);
 
-            Entities.WithoutBurst().WithAll<GridDotTag>().ForEach((ref AccumulatedAgents agents, in PlotMetadata dotData) =>
+            int widthOfMap = (int)GenericInformation.LayoutWidth;
+
+            JobHandle handle = Entities.WithAll<AgentTag>().ForEach((in Translation t) =>
             {
+                int posX = (int) math.floor(t.Value.x);
+                int posZ = (int) math.floor(t.Value.z);
 
-                NativeArray<bool> nearTheGridDot = new NativeArray<bool>(agentsPositions.Length, Allocator.TempJob);
-                int totalAgents = 0;
+                agents.Add(posZ * widthOfMap + posX, t);
+            }).Schedule(Dependency);
 
-                // Create and run job
-                AccumulateAgentsJob job = new AccumulateAgentsJob()
+            JobHandle secondHandle = Entities.WithAll<GridDotTag>().ForEach((ref AccumulatedAgents accumulatedAgents, in PlotMetadata dotData) =>
+            {
+                accumulatedAgents.Value = 0;
+                int hash = ((int)dotData.dotBoundaries.z * widthOfMap) + (int)dotData.dotBoundaries.x;
+
+                if (agents.ContainsKey(hash))
                 {
-                    agentPositions = agentsPositions,
-                    gridDotDetectionBoundary = dotData.dotBoundaries,
-                    nearTheGridDot = nearTheGridDot
-                };
-
-                JobHandle jobHandle = job.Schedule(agentsPositions.Length, 64);
-
-                jobHandle.Complete();
-
-                // Retrieve data
-                for (int i = 0; i < nearTheGridDot.Length; i++)
-                {
-                    if (nearTheGridDot[i])
-                    {
-                        totalAgents++;
-                    }
+                    accumulatedAgents.Value += agents.CountValuesForKey(hash);
                 }
+            }).Schedule(handle);
 
-                agents.Value = totalAgents;
+            secondHandle.Complete();
 
-                // Dispose native arrays
-                nearTheGridDot.Dispose();
-            }).Run();
-
-            agentsPositions.Dispose();
+            agents.Dispose();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Swarm
 
         [Header("Agents data")]
         [SerializeField] public float AgentSize;
+        [SerializeField] public int NumberOfAgents;
 
         [Header("Layout data")]
         [SerializeField] public float LayoutWidth;

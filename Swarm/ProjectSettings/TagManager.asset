@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SystemManager
+  - GridPlane
   layers:
   - Default
   - TransparentFX

@@ -104,7 +104,7 @@
     {
       "FullName": "Unity.Physics.Hybrid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "FilePath": "C:\\Users\\alexe\\Desktop\\SwarmSimulation\\Swarm\\Library\\ScriptAssemblies\\Unity.Physics.Hybrid.dll",
-      "LastWriteTime": "2020-05-26T20:47:18.6082117Z"
+      "LastWriteTime": "2020-05-30T14:51:14.0035581Z"
     }
   ],
   "Functions": [
@@ -1550,82 +1550,6 @@
         5,
         0,
         6
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Unity.Entities.GatherComponentDataJob`1<Unity.Entities.SceneSectionData>>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 10400676583197497630,
-      "ModuleHash": "770ee57e2b387656c2d0b9c7d6139058",
-      "LinkName": "48911C7922A7A8F7",
-      "AssemblyDependencyIndices": [
-        0,
-        1,
-        2,
-        4,
-        6,
-        5,
-        19,
-        3
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Entities.EntityManager/MoveAllChunksJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 10400676583197497630,
-      "ModuleHash": "afed97d95162b6bfb0565d91f9a271d6",
-      "LinkName": "FF5E89918B073665",
-      "AssemblyDependencyIndices": [
-        4,
-        0,
-        6,
-        1,
-        2,
-        3
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobExtensions/JobStruct`1<Unity.Entities.EntityManager/ChunkPatchEntities>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 10400676583197497630,
-      "ModuleHash": "12bc45b54f773827e8d39154e427a000",
-      "LinkName": "D0CB6D6C02265679",
-      "AssemblyDependencyIndices": [
-        4,
-        0,
-        6,
-        1,
-        2,
-        3,
-        5
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobParallelForExtensions/ParallelForJobStruct`1<Unity.Entities.EntityManager/RemapAllChunksJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 10400676583197497630,
-      "ModuleHash": "8bef3daec8aabfb2cdc77155ff20f53b",
-      "LinkName": "1E10162B8432AA2F",
-      "AssemblyDependencyIndices": [
-        4,
-        0,
-        6,
-        1,
-        2,
-        3
-      ]
-    },
-    {
-      "FullName": "System.Void Unity.Jobs.IJobParallelForExtensions/ParallelForJobStruct`1<Unity.Entities.EntityManager/RemapAllArchetypesJob>::Execute(T&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
-      "ModuleOptionsHash": 10400676583197497630,
-      "ModuleHash": "64a095226a87eef22e1d673df2a3628c",
-      "LinkName": "30A24EB3719501E3",
-      "AssemblyDependencyIndices": [
-        4,
-        0,
-        6,
-        1,
-        2,
-        3,
-        5,
-        8,
-        9
       ]
     },
     {

@@ -18,7 +18,6 @@ namespace Swarm.Swarm
     {
         /* Swarm metadata */
         [Header("Swarm data")]
-        [SerializeField] private int numberOfAgents;
         [SerializeField] private float gridSpacing;
 
         /* Agent data */
@@ -36,12 +35,14 @@ namespace Swarm.Swarm
         [SerializeField] private Mesh agentMesh;
         [SerializeField] private Material agentMaterial;
 
+        private int numberOfAgents;
         private float gridWidth;
         private float gridHeight;
 
         private Entity entityWithPhysics;
         private EntityManager entityManager;
         private BlobAssetStore asset;
+
 
         public void Initialize()
         {
@@ -155,6 +156,11 @@ namespace Swarm.Swarm
         public void SetEntityManager(EntityManager entityManager)
         {
             this.entityManager = entityManager;
+        }
+
+        public void SetNumberOfAgents(int num)
+        {
+            numberOfAgents = num;
         }
 
         private void OnDisable()

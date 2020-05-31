@@ -133,8 +133,8 @@ GameObject:
   - component: {fileID: 201191685}
   - component: {fileID: 201191684}
   m_Layer: 0
-  m_Name: Base plane
-  m_TagString: Untagged
+  m_Name: GridPlane
+  m_TagString: GridPlane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
   rightLightPosition:
     x: 20
     y: 35
-  agentMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
-  agentMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  agentMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 3}
+  agentMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 3}
 --- !u!4 &792290895
 Transform:
   m_ObjectHideFlags: 0
@@ -282,7 +282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d601ecd24d366e84e893fe1696eb4a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfAgents: 100
   gridSpacing: 1
   gatheringSpeed: 50
   agentSpeed: 2
@@ -432,6 +431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeStep: 1
   AgentSize: 1
+  NumberOfAgents: 400
   LayoutWidth: 40
   LayoutHeight: 40
 --- !u!114 &1449347359
@@ -456,6 +456,8 @@ MonoBehaviour:
   - AgentCollision
   - BoundaryCollision
   - RestoreCollidedPosition
+  - AccumulateAgents
+  - PlotGrid
   PerFrameSystems:
   - Gather
   - Transfer

@@ -9,6 +9,11 @@ namespace Swarm
 
         public bool WillRunPerTimeStep { get; set; }
 
+        public virtual void InitializeData()
+        {
+
+        }
+
         protected override void OnCreate()
         {
             base.OnCreate();
