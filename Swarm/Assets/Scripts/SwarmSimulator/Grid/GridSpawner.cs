@@ -56,7 +56,7 @@ namespace Swarm.Grid
             float scaleX = gridWidth / columns;
             float scaleZ = gridHeight / rows;
 
-            float vertexIndex = 0;
+            int vertexIndex = 0;
             for(int z = 0; z < verticalVertices; z++)
             {
                 for(int x = 0; x < horizontalVertices; x++)
@@ -97,7 +97,7 @@ namespace Swarm.Grid
             mesh.MarkDynamic(); // Optimyze for constant updates
         }
 
-        private Entity MakeGridDot(float index, float x, float z)
+        private Entity MakeGridDot(int index, float x, float z)
         {
             Entity entity = entityManager.CreateEntity(gridDotArchetype);
 

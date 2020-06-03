@@ -211,7 +211,7 @@ MonoBehaviour:
   transferRate: 0.5
   consumptionRate: 0.01
   agentWithPhysics: {fileID: 1950812679}
-  agentMesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 3}
+  agentMesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   agentMaterial: {fileID: 2100000, guid: 47f04029d9e65fd42a14c351f30d57f4, type: 2}
 --- !u!4 &916906625
 Transform:
@@ -429,7 +429,7 @@ MonoBehaviour:
   columns: 10
   rows: 10
   gridInitialHeight: 10
-  dotMaterial: {fileID: 2100000, guid: 57b6f7368fee494449b0b87ab9d1edb2, type: 2}
+  dotMaterial: {fileID: 2100000, guid: 24801080411299b48b3802bbf84a2ade, type: 2}
   speed: 2
 --- !u!1 &1950812679
 GameObject:
