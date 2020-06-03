@@ -1,9 +1,9 @@
-Swarm/Library/
-Swarm/Temp/
-Swarm/obj/
-Swarm/Build/
-Swarm/Builds/
-Swarm/Logs/
+Swarm/Library/*
+Swarm/Temp/*
+Swarm/obj/*
+Swarm/Build/*
+Swarm/Builds/*
+Swarm/Logs/*
 
 # Never ignore Asset meta data
 !Assets/**/*.meta

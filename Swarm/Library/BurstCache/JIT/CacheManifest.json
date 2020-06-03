@@ -74,37 +74,42 @@
     {
       "FullName": "Unity.Entities.PerformanceTests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "FilePath": "C:\\Users\\alexe\\Desktop\\SwarmSimulation\\Swarm\\Library\\ScriptAssemblies\\Unity.Entities.PerformanceTests.dll",
-      "LastWriteTime": "2020-05-16T19:39:34.4407878Z"
+      "LastWriteTime": "2020-05-31T14:18:27.5128632Z"
     },
     {
       "FullName": "Unity.Entities.Tests, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "FilePath": "C:\\Users\\alexe\\Desktop\\SwarmSimulation\\Swarm\\Library\\ScriptAssemblies\\Unity.Entities.Tests.dll",
-      "LastWriteTime": "2020-05-16T19:39:37.2407099Z"
+      "LastWriteTime": "2020-05-31T14:18:30.3707498Z"
     },
     {
       "FullName": "Unity.Transforms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "FilePath": "C:\\Users\\alexe\\Desktop\\SwarmSimulation\\Swarm\\Library\\ScriptAssemblies\\Unity.Transforms.dll",
-      "LastWriteTime": "2020-05-16T19:39:31.1545173Z"
+      "LastWriteTime": "2020-05-31T14:18:24.4865549Z"
     },
     {
       "FullName": "Unity.Physics, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "FilePath": "C:\\Users\\alexe\\Desktop\\SwarmSimulation\\Swarm\\Library\\ScriptAssemblies\\Unity.Physics.dll",
-      "LastWriteTime": "2020-05-16T19:39:32.5098331Z"
+      "LastWriteTime": "2020-05-31T14:18:25.8791787Z"
     },
     {
       "FullName": "Unity.Jobs, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "FilePath": "C:\\Users\\alexe\\Desktop\\SwarmSimulation\\Swarm\\Library\\ScriptAssemblies\\Unity.Jobs.dll",
-      "LastWriteTime": "2020-05-16T19:39:12.9328836Z"
+      "LastWriteTime": "2020-05-31T14:18:07.9106651Z"
     },
     {
       "FullName": "Unity.Mathematics.Extensions, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "FilePath": "C:\\Users\\alexe\\Desktop\\SwarmSimulation\\Swarm\\Library\\ScriptAssemblies\\Unity.Mathematics.Extensions.dll",
-      "LastWriteTime": "2020-05-16T19:39:13.1552906Z"
+      "LastWriteTime": "2020-05-31T14:18:08.1704783Z"
     },
     {
       "FullName": "Unity.Physics.Hybrid, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
       "FilePath": "C:\\Users\\alexe\\Desktop\\SwarmSimulation\\Swarm\\Library\\ScriptAssemblies\\Unity.Physics.Hybrid.dll",
-      "LastWriteTime": "2020-05-30T14:51:14.0035581Z"
+      "LastWriteTime": "2020-06-02T21:27:55.0109907Z"
+    },
+    {
+      "FullName": "Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null",
+      "FilePath": "C:\\Users\\alexe\\Desktop\\SwarmSimulation\\Swarm\\Library\\ScriptAssemblies\\Assembly-CSharp.dll",
+      "LastWriteTime": "2020-06-02T21:46:19.5453027Z"
     }
   ],
   "Functions": [
@@ -1619,6 +1624,241 @@
         1,
         2,
         17,
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Unity.Entities.GatherComponentDataJob`1<Swarm.Swarm.PotentialFieldAgent>>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "538dc66c1199aeb07868bcf358f8e510",
+      "LinkName": "DBA86AACA55144B7",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Unity.Entities.GatherComponentDataJob`1<Swarm.Scenario.Light>>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "3bac240f5c8c45596f72fd94ce37eedf",
+      "LinkName": "7D3BDBBC45D1F61D",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Swarm.Grid.AccumulateAgentsSystem/Swarm.Grid.<>c__DisplayClass_OnUpdate_LambdaJob0>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "a48d86e46d97002aa9ccccf3c199662c",
+      "LinkName": "842DAA1D25B80E28",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6,
+        3,
+        16,
+        5,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Swarm.Grid.AccumulateAgentsSystem/Swarm.Grid.<>c__DisplayClass_OnUpdate_LambdaJob1>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "becb9ba775922c05606f0668c8f4f7e8",
+      "LinkName": "7D28AAFEA9D63FE5",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6,
+        3,
+        16,
+        5,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Swarm.Swarm.DecideMovementSystem/Swarm.Swarm.<>c__DisplayClass_OnUpdate_LambdaJob0>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "5b680c2581c115b269e92b8eb24a6165",
+      "LinkName": "1134B9A1F476C2A7",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6,
+        5,
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Swarm.Movement.MoveForwardSystem/Swarm.Movement.<>c__DisplayClass_OnUpdate_LambdaJob0>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "4a73a0d574fe2eab2f3e7f79139b0625",
+      "LinkName": "4E587E8B27F1DB0D",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6,
+        16,
+        5,
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Swarm.Movement.BoundaryCollisionSystem/Swarm.Movement.<>c__DisplayClass_OnUpdate_LambdaJob0>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "f9e152a3d321153aa58be9791bd7e685",
+      "LinkName": "C1E81210783E5571",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6,
+        16,
+        5,
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Swarm.Movement.RestoreCollidedPositionSystem/Swarm.Movement.<>c__DisplayClass_OnUpdate_LambdaJob0>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "904d244fb78398685b45c9d100aedcac",
+      "LinkName": "33B8B329865F3EA9",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6,
+        16,
+        5,
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Physics.ITriggerEventJobExtensions/TriggerEventJobProcess`1<Swarm.Movement.AgentCollisionSystem/AgentCollisionJob>::Execute(Unity.Physics.ITriggerEventJobExtensions/TriggerEventJobData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "3ef894319c99ff405bada2d4b4bdcc45",
+      "LinkName": "2381BC6EBC20F478",
+      "AssemblyDependencyIndices": [
+        17,
+        21,
+        1,
+        2,
+        4,
+        3,
+        6,
+        0,
+        16,
+        5,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Swarm.Swarm.GatherSystem/Swarm.Swarm.<>c__DisplayClass_OnUpdate_LambdaJob0>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "c8ebe37c0d72276e6d4afc58990e2f30",
+      "LinkName": "CEC832B8787CC65E",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6,
+        5,
+        16,
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Physics.ITriggerEventJobExtensions/TriggerEventJobProcess`1<Swarm.Swarm.TransferSystem/TransferJob>::Execute(Unity.Physics.ITriggerEventJobExtensions/TriggerEventJobData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "a5abe5db5c39a64938b719bb607d44b6",
+      "LinkName": "DEA7ABBD7F7E5E79",
+      "AssemblyDependencyIndices": [
+        17,
+        21,
+        1,
+        2,
+        4,
+        3,
+        6,
+        0,
+        5,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Swarm.Swarm.ConsumptionSystem/Swarm.Swarm.<>c__DisplayClass_OnUpdate_LambdaJob0>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "b736ba74d481a2af5da7b17debe2a6a2",
+      "LinkName": "D68FDD4EFA96DAD1",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6,
+        3,
+        8,
+        9
+      ]
+    },
+    {
+      "FullName": "System.Void Unity.Entities.JobChunkExtensions/JobChunk_Process`1<Swarm.Grid.PlotGridSystem/Swarm.Grid.<>c__DisplayClass_OnUpdate_LambdaJob0>::Execute(Unity.Entities.JobChunkExtensions/JobChunkData`1<T>&,System.IntPtr,System.IntPtr,Unity.Jobs.LowLevel.Unsafe.JobRanges&,System.Int32)",
+      "ModuleOptionsHash": 10400676583197497630,
+      "ModuleHash": "f34af582b8c15b84ff520d62a0b734e8",
+      "LinkName": "62178A24940C2813",
+      "AssemblyDependencyIndices": [
+        0,
+        21,
+        1,
+        2,
+        4,
+        6,
+        5,
+        16,
         3,
         8,
         9

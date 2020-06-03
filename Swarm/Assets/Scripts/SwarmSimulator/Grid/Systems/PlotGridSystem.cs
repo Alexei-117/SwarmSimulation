@@ -1,4 +1,5 @@
 ﻿using Swarm.Movement;
+using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
@@ -12,10 +13,13 @@ namespace Swarm.Grid
     public class PlotGridSystem : SystemBaseManageable
     {
         private Mesh gridMesh;
+        private NativeArray<Vector3> meshVertices;
 
         public override void InitializeData()
         {
-            gridMesh = GameObject.FindGameObjectWithTag("GridPlane").GetComponent<MeshFilter>().mesh;
+            //gridMesh = GameObject.FindGameObjectWithTag("GridPlane").GetComponent<MeshFilter>().mesh;
+
+            //meshVertices = new NativeArray<Vector3>(gridMesh.vertexCount, Allocator.Persistent);
         }
 
         protected override void OnCreate()
@@ -34,12 +38,18 @@ namespace Swarm.Grid
 
         protected override void OnUpdate()
         {
-            /*Entities.WithAll<GridDotTag>().ForEach((ref MoveForward moveForward, in Translation t, in AccumulatedAgents agents, in PlotMetadata plotMeta) =>
+            Entities.WithAll<GridDotTag>().ForEach((ref MoveForward moveForward, in Translation t, in AccumulatedAgents agents, in PlotMetadata plotMeta) =>
             {
                 float yMovement = agents.Value + plotMeta.InitialHeight < t.Value.y ? -1 : 1;
                 yMovement = math.abs(agents.Value + plotMeta.InitialHeight - t.Value.y) < 0.05 ? 0 : yMovement;
                 moveForward.Direction = new float3(0, yMovement, 0);
-            }).ScheduleParallel();*/
+            }).ScheduleParallel();
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            //meshVertices.Dispose();
         }
     }
 }
