@@ -150,16 +150,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d15e63c79b3f3469c823ad930ca9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftLightRadius: 1
-  leftLightPosition:
-    x: 20
-    y: 5
-  rightLightRadius: 5
-  rightLightPosition:
-    x: 20
-    y: 35
-  agentMesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 3}
-  agentMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 3}
+  color1: {r: 0.021978855, g: 0, b: 1, a: 0}
+  radius1: 1
+  position1:
+    x: 5
+    y: 20
+  color2: {r: 1, g: 0, b: 0, a: 0}
+  radius2: 5
+  position2:
+    x: 35
+    y: 20
 --- !u!4 &792290895
 Transform:
   m_ObjectHideFlags: 0
@@ -371,7 +371,7 @@ MonoBehaviour:
   - Gather
   - Transfer
   - Consumption
-  - 
+  - FindHighestGradient
   - DecideMovement
   - MoveForward
   - AgentCollision

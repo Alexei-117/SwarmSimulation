@@ -9,22 +9,18 @@ namespace Swarm.Scenario
 {
     public class LightSpawner : MonoBehaviour
     {
-        [Header("Left light")] 
-        [SerializeField] private float leftLightRadius;
-        [SerializeField] private float2 leftLightPosition;
+        [Header("Left light")]
+        [SerializeField] private Color color1;
+        [SerializeField] private float radius1;
+        [SerializeField] private float2 position1;
 
-        [Header("Right light")] 
-        [SerializeField] private float rightLightRadius;
-        [SerializeField] private float2 rightLightPosition;
-
-        /* Grid dots data */
-        [Header("Rendering")]
-        [SerializeField] private Mesh agentMesh;
-        [SerializeField] private Material agentMaterial;
+        [Header("Right light")]
+        [SerializeField] private Color color2;
+        [SerializeField] private float radius2;
+        [SerializeField] private float2 position2;
 
         private EntityManager entityManager;
         private EntityArchetype agentArchetype;
-
 
         public void Initialize()
         {
@@ -34,13 +30,37 @@ namespace Swarm.Scenario
 
         private void SpawnLight()
         {
-            // Create 2 
-            CreateLight(leftLightPosition, leftLightRadius);
-            CreateLight(rightLightPosition, rightLightRadius);
+            // Create 2
+            int lightIndex = 0;
+            CreateLightGameObject(lightIndex++, position1, radius1, color1);
+            CreateLightGameObject(lightIndex++, position2, radius2, color2);
+
+            CreateLight(position1, radius1);
+            CreateLight(position2, radius2);
+        }
+
+        private void CreateLightGameObject(int lightIndex, float2 position, float lightRadius, Color color)
+        {
+            // Create light gameobject
+            GameObject lightGameObject = new GameObject("Light" + lightIndex);
+            Transform lightTransform = lightGameObject.GetComponent<Transform>();
+            lightTransform.position = new Vector3(position.x, lightRadius, position.y);
+
+            //Lights that point downwards
+            lightTransform.rotation = Quaternion.LookRotation(new Vector3(0.0f, -1.0f, 0.0f), new Vector3(1.0f, 0.0f, 0.0f));
+
+            UnityEngine.Light light = lightGameObject.AddComponent<UnityEngine.Light>();
+            light.type = LightType.Spot;
+            light.color = color;
+            light.areaSize = new Vector2(lightRadius, lightRadius);
+            light.intensity = 30;
+            light.spotAngle = 90;
+            light.range = 30;
         }
 
         private Entity CreateLight(float2 position, float lightRadius)
         {
+            // Create entity
             Entity entity = entityManager.CreateEntity(agentArchetype);
 
             entityManager.AddComponentData<Translation>(entity, new Translation
@@ -51,12 +71,6 @@ namespace Swarm.Scenario
             entityManager.AddComponentData<Light>(entity, new Light
             {
                 Radius = lightRadius
-            });
-
-            entityManager.AddSharedComponentData<RenderMesh>(entity, new RenderMesh
-            {
-                mesh = agentMesh,
-                material = agentMaterial
             });
 
             return entity;

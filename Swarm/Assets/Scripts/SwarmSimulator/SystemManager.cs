@@ -94,7 +94,6 @@ namespace Swarm
                 {
                     system.Enabled = true;
                     system.GenericInformation = genericInformation;
-                    RunningSystems.Remove(system.Name);
                 }
             }
         }
