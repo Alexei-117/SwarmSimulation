@@ -16,10 +16,6 @@ namespace Swarm.Swarm
 {
     public class SwarmSpawner : MonoBehaviour
     {
-        /* Swarm metadata */
-        [Header("Swarm data")]
-        [SerializeField] private float gridSpacing;
-
         /* Agent data */
         [Header("Agent data")]
         [SerializeField] private float gatheringSpeed;
@@ -57,11 +53,11 @@ namespace Swarm.Swarm
                 GameObjectConversionSettings.FromWorld(entityManager.World, asset ));
 
             Random random = new Random();
-            random.InitState((uint)200);
+            random.InitState((uint)((int)Time.time * 100000.0f + 1));
 
             for (int cont = 0; cont < numberOfAgents; cont++)
             {
-                CreateAgent(random.NextFloat(0, gridWidth * gridSpacing), random.NextFloat(0, gridHeight * gridSpacing), random.NextUInt());
+                CreateAgent(random.NextFloat(0, gridWidth), random.NextFloat(0, gridHeight), random.NextUInt());
             }
         }
 

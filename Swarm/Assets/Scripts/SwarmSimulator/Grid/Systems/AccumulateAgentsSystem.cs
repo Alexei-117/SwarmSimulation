@@ -8,6 +8,7 @@ using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine.Assertions.Must;
 
 namespace Swarm.Grid
 {
@@ -22,22 +23,24 @@ namespace Swarm.Grid
         protected override void OnUpdate()
         {
             NativeMultiHashMap<int, Translation> agents = new NativeMultiHashMap<int, Translation>(
-                (int)(GenericInformation.LayoutWidth * GenericInformation.LayoutHeight), Allocator.TempJob);
+                GenericInformation.NumberOfAgents, Allocator.TempJob);
 
-            int widthOfMap = (int)GenericInformation.LayoutWidth;
+            float widthOfGrid = GridSpawner.gridTileWidth;
+            float heightOfGrid = GridSpawner.gridTileHeight;
+            int horizontalVertices = GridSpawner.horizontalVertices;
 
             JobHandle handle = Entities.WithAll<AgentTag>().ForEach((in Translation t) =>
             {
-                int posX = (int) math.floor(t.Value.x);
-                int posZ = (int) math.floor(t.Value.z);
+                int posX = (int) math.floor(t.Value.x / widthOfGrid + 0.5f);
+                int posZ = (int) math.floor(t.Value.z / heightOfGrid + 0.5f);
 
-                agents.Add(posZ * widthOfMap + posX, t);
+                agents.Add(posZ * horizontalVertices + posX, t);
             }).Schedule(Dependency);
 
-            JobHandle secondHandle = Entities.WithAll<GridDotTag>().ForEach((ref AccumulatedAgents accumulatedAgents, in PlotMetadata dotData) =>
+            JobHandle secondHandle = Entities.WithAll<GridDotTag>().ForEach((ref AccumulatedAgents accumulatedAgents, in Translation t) =>
             {
                 accumulatedAgents.Value = 0;
-                int hash = ((int)dotData.dotBoundaries.z * widthOfMap) + (int)dotData.dotBoundaries.x;
+                int hash = ((int)(t.Value.z / heightOfGrid) * horizontalVertices) + (int)(t.Value.x / widthOfGrid);
 
                 if (agents.ContainsKey(hash))
                 {

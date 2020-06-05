@@ -21,6 +21,8 @@ namespace Swarm
         [Header("Layout data")]
         [SerializeField] public float LayoutWidth;
         [SerializeField] public float LayoutHeight;
+        public float GridTileWidth;
+        public float GridTileHeight;
 
         public static ComponentType[] GetGenericComponents()
         {
@@ -60,12 +62,12 @@ namespace Swarm
 
         public float GetLayoutWidth()
         {
-            return LayoutWidth * AgentSize;
+            return LayoutWidth;
         }
 
         public float GetLayoutHeight()
         {
-            return LayoutHeight * AgentSize;
+            return LayoutHeight;
         }
 
         public void SetEntityManager(EntityManager entityManager)

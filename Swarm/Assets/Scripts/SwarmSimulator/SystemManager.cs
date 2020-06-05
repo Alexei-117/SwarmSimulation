@@ -65,6 +65,7 @@ namespace Swarm
         {
             gridSpawner.SetLayoutLimits(genericInformation.GetLayoutWidth(), genericInformation.GetLayoutHeight());
             gridSpawner.SetEntityManager(entityManager);
+            gridSpawner.SetGenericInformation(genericInformation);
             gridSpawner.Initialize();
         }
 

@@ -203,7 +203,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d601ecd24d366e84e893fe1696eb4a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSpacing: 1
   gatheringSpeed: 50
   agentSpeed: 2
   colliderSize: 0.75
@@ -352,9 +351,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeStep: 1
   AgentSize: 1
-  NumberOfAgents: 400
+  NumberOfAgents: 40
   LayoutWidth: 40
   LayoutHeight: 40
+  GridTileWidth: 0
+  GridTileHeight: 0
 --- !u!114 &1449347359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -379,10 +380,7 @@ MonoBehaviour:
   - RestoreCollidedPosition
   - AccumulateAgents
   - PlotGrid
-  PerFrameSystems:
-  - Gather
-  - Transfer
-  - Consumption
+  PerFrameSystems: []
 --- !u!1 &1943328597
 GameObject:
   m_ObjectHideFlags: 0

@@ -22,10 +22,15 @@ namespace Swarm.Grid
         [SerializeField] private float speed;
 
         /* Generic metadata */
+        private GenericInformation genericInformation;
         private EntityManager entityManager;
         private EntityArchetype gridDotArchetype;
 
         /* Grid metadata */
+        public static float gridTileWidth;
+        public static float gridTileHeight;
+        public static int horizontalVertices;
+        public static int verticalVertices;
         private float gridWidth;
         private float gridHeight;
 
@@ -48,21 +53,21 @@ namespace Swarm.Grid
             List<Vector2> uvs = new List<Vector2>();
             List<int> triangles = new List<int>();
 
-            int horizontalVertices = columns + 1;
-            int verticalVertices = rows + 1;
+            horizontalVertices = columns + 1;
+            verticalVertices = rows + 1;
 
             float uvFactorX = 1.0f / columns;
             float uvFactorZ = 1.0f / rows;
-            float scaleX = gridWidth / columns;
-            float scaleZ = gridHeight / rows;
+            gridTileWidth = gridWidth / columns;
+            gridTileHeight = gridHeight / rows;
 
             int vertexIndex = 0;
             for(int z = 0; z < verticalVertices; z++)
             {
                 for(int x = 0; x < horizontalVertices; x++)
                 {
-                    float xPos = x * scaleX;
-                    float zPos = z * scaleZ;
+                    float xPos = x * gridTileWidth;
+                    float zPos = z * gridTileHeight;
                     vertices.Add(new Vector3(xPos, gridInitialHeight, zPos));
                     uvs.Add(new Vector2(x * uvFactorX, z * uvFactorZ));
 
@@ -158,6 +163,11 @@ namespace Swarm.Grid
         public void SetEntityManager(EntityManager entityManager)
         {
             this.entityManager = entityManager;
+        }
+
+        public void SetGenericInformation(GenericInformation genericInformation)
+        {
+            this.genericInformation = genericInformation;
         }
     }
 }
