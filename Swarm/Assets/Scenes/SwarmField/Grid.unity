@@ -212,6 +212,8 @@ MonoBehaviour:
   agentWithPhysics: {fileID: 1950812679}
   agentMesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   agentMaterial: {fileID: 2100000, guid: 47f04029d9e65fd42a14c351f30d57f4, type: 2}
+  colliderMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  colliderMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &916906625
 Transform:
   m_ObjectHideFlags: 0
@@ -380,6 +382,7 @@ MonoBehaviour:
   - RestoreCollidedPosition
   - AccumulateAgents
   - PlotGrid
+  - MoveCommunicationAreaToAgent
   PerFrameSystems: []
 --- !u!1 &1943328597
 GameObject:

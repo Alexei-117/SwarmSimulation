@@ -1,14 +1,9 @@
-﻿using System.Collections;
-using System.Diagnostics;
-using System.Linq;
-using Swarm.Swarm;
-using Unity.Burst;
+﻿using Swarm.Swarm;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
-using UnityEngine.Assertions.Must;
 
 namespace Swarm.Grid
 {

@@ -1,10 +1,9 @@
-﻿using Unity.Entities;
-using UnityEngine;
-using Unity.Transforms;
-using Unity.Rendering;
-using Unity.Mathematics;
-using Swarm.Movement;
+﻿using Swarm.Movement;
 using System.Collections.Generic;
+using Unity.Entities;
+using Unity.Mathematics;
+using Unity.Transforms;
+using UnityEngine;
 
 namespace Swarm.Grid
 {

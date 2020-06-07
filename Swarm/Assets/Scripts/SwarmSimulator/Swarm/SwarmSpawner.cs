@@ -2,7 +2,6 @@
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
-using Unity.Physics.Systems;
 using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
@@ -10,7 +9,6 @@ using Collider = Unity.Physics.Collider;
 using Collision = Swarm.Movement.Collision;
 using Material = UnityEngine.Material;
 using Random = Unity.Mathematics.Random;
-using SphereCollider = Unity.Physics.SphereCollider;
 
 namespace Swarm.Swarm
 {
@@ -30,6 +28,8 @@ namespace Swarm.Swarm
         [Header("Rendering")]
         [SerializeField] private Mesh agentMesh;
         [SerializeField] private Material agentMaterial;
+        [SerializeField] private Mesh colliderMesh;
+        [SerializeField] private Material colliderMaterial;
 
         private int numberOfAgents;
         private float gridWidth;
@@ -72,6 +72,8 @@ namespace Swarm.Swarm
                 Value = new float3(x, 0f, z)
             });
 
+            CreateCommunicationArea(x, z);
+
             entityManager.SetComponentData<PhysicsCollider>(entity, new PhysicsCollider
             {
                 Value = sourceCollider
@@ -94,7 +96,7 @@ namespace Swarm.Swarm
             entityManager.AddSharedComponentData<RenderMesh>(entity, new RenderMesh
             {
                 mesh = agentMesh,
-                material = agentMaterial
+                material = agentMaterial      
             });
 
             Random agentRandom = new Random();
@@ -141,6 +143,30 @@ namespace Swarm.Swarm
             });
 
             return entity;
+        }
+
+        private void CreateCommunicationArea(float x, float z)
+        {
+
+            ComponentType[] components = GenericInformation.GetGenericComponents();
+            components = GenericInformation.AddComponents(components, new ComponentType[]
+            {
+                typeof(CommunicationAreaTag)
+            });
+
+            Entity entity = entityManager.CreateEntity(entityManager.CreateArchetype(components));
+
+            entityManager.SetComponentData<Translation>(entity, new Translation
+            {
+                Value = new float3(x, 0f, z)
+            });
+
+
+            entityManager.SetSharedComponentData<RenderMesh>(entity, new RenderMesh
+            {
+                mesh = colliderMesh,
+                material = colliderMaterial
+            });
         }
 
         public void SetLayoutLimits(float width, float height)
