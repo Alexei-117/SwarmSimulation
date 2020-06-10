@@ -14,7 +14,6 @@ namespace Swarm.Swarm
 {
     public class SwarmSpawner : MonoBehaviour
     {
-        /* Agent data */
         [Header("Agent data")]
         [SerializeField] private float gatheringSpeed;
         [SerializeField] private float agentSpeed;
@@ -24,12 +23,13 @@ namespace Swarm.Swarm
         [SerializeField] private float consumptionRate;
         [SerializeField] private GameObject agentWithPhysics;
 
-        /* Grid dots data */
         [Header("Rendering")]
         [SerializeField] private Mesh agentMesh;
         [SerializeField] private Material agentMaterial;
-        [SerializeField] private Mesh colliderMesh;
-        [SerializeField] private Material colliderMaterial;
+        [SerializeField] private Mesh communcationAreaMesh;
+        [SerializeField] private Material communicationAreaMaterial;
+        [SerializeField] private Mesh collisionAreaMesh;
+        [SerializeField] private Material collisionAreaMaterial;
 
         private int numberOfAgents;
         private float gridWidth;
@@ -73,6 +73,7 @@ namespace Swarm.Swarm
             });
 
             CreateCommunicationArea(x, z);
+            CreateCollisionArea(x, z);
 
             entityManager.SetComponentData<PhysicsCollider>(entity, new PhysicsCollider
             {
@@ -161,11 +162,43 @@ namespace Swarm.Swarm
                 Value = new float3(x, 0f, z)
             });
 
+            entityManager.SetSharedComponentData<RenderMesh>(entity, new RenderMesh
+            {
+                mesh = communcationAreaMesh,
+                material = communicationAreaMaterial
+            });
+
+            entityManager.AddComponentData<Scale>(entity, new Scale
+            {
+                Value = 3.5f
+            });
+        }
+
+        private void CreateCollisionArea(float x, float z)
+        {
+
+            ComponentType[] components = GenericInformation.GetGenericComponents();
+            components = GenericInformation.AddComponents(components, new ComponentType[]
+            {
+                typeof(CollisionAreaTag)
+            });
+
+            Entity entity = entityManager.CreateEntity(entityManager.CreateArchetype(components));
+
+            entityManager.SetComponentData<Translation>(entity, new Translation
+            {
+                Value = new float3(x, 1.0f, z)
+            });
 
             entityManager.SetSharedComponentData<RenderMesh>(entity, new RenderMesh
             {
-                mesh = colliderMesh,
-                material = colliderMaterial
+                mesh = collisionAreaMesh,
+                material = collisionAreaMaterial
+            });
+
+            entityManager.AddComponentData<Scale>(entity, new Scale
+            {
+                Value = 0.75f
             });
         }
 

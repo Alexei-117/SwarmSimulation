@@ -212,8 +212,14 @@ MonoBehaviour:
   agentWithPhysics: {fileID: 1950812679}
   agentMesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   agentMaterial: {fileID: 2100000, guid: 47f04029d9e65fd42a14c351f30d57f4, type: 2}
-  colliderMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  colliderMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  communcationAreaMesh: {fileID: -2432090755550338912, guid: 352a056f80e54c14cbfb99e4e91a56da,
+    type: 3}
+  communicationAreaMaterial: {fileID: 2100000, guid: 5c4bd5d2b9c2d20449f1b48d9bd27b90,
+    type: 2}
+  collisionAreaMesh: {fileID: -2432090755550338912, guid: 352a056f80e54c14cbfb99e4e91a56da,
+    type: 3}
+  collisionAreaMaterial: {fileID: 2100000, guid: 185fa8851fece4e4dab03e9c7675e600,
+    type: 2}
 --- !u!4 &916906625
 Transform:
   m_ObjectHideFlags: 0
@@ -382,8 +388,13 @@ MonoBehaviour:
   - RestoreCollidedPosition
   - AccumulateAgents
   - PlotGrid
-  - MoveCommunicationAreaToAgent
-  PerFrameSystems: []
+  - AgentAreas
+  PerFrameSystems:
+  - Gather
+  - Transfer
+  - Consumption
+  - FindHighestGradient
+  - DecideMovement
 --- !u!1 &1943328597
 GameObject:
   m_ObjectHideFlags: 0
