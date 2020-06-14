@@ -25,7 +25,6 @@ namespace Swarm.Swarm
 
             NativeArray<float> lightsSizes = GenericInformation.GetLights.Reinterpret<float>();
 
-            float time = Time.DeltaTime;
             this.Dependency = Entities.WithAll<AgentTag>().ForEach((ref PotentialFieldAgent potentialField, in Translation t, in Gather gather) =>
             {
                 // Retrieve data
@@ -33,7 +32,6 @@ namespace Swarm.Swarm
                 {
                     if (math.distance(new float2(t.Value.x, t.Value.z), new float2(lightsPositions[i].x, lightsPositions[i].z)) <= lightsSizes[i])
                     {
-                        //potentialField.Value += gather.Value * time;
                         potentialField.Value += gather.Value;
                     }
                 }

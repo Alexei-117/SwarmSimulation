@@ -158,7 +158,7 @@ MonoBehaviour:
   color2: {r: 1, g: 0, b: 0, a: 0}
   radius2: 5
   position2:
-    x: 35
+    x: 75
     y: 20
 --- !u!4 &792290895
 Transform:
@@ -203,6 +203,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d601ecd24d366e84e893fe1696eb4a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPoint:
+    x: 0
+    y: 0
+  endPoint:
+    x: 80
+    y: 40
   gatheringSpeed: 50
   agentSpeed: 2
   colliderSize: 0.75
@@ -246,7 +252,7 @@ GameObject:
   - component: {fileID: 1159177718}
   - component: {fileID: 1159177717}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -307,8 +313,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159177715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20, y: 0, z: 20}
-  m_LocalScale: {x: 4, y: 1, z: 4}
+  m_LocalPosition: {x: 40, y: 0, z: 20}
+  m_LocalScale: {x: 8, y: 1, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -359,8 +365,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeStep: 1
   AgentSize: 1
-  NumberOfAgents: 40
-  LayoutWidth: 40
+  NumberOfAgents: 375
+  LayoutWidth: 80
   LayoutHeight: 40
   GridTileWidth: 0
   GridTileHeight: 0
@@ -438,7 +444,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160ab2c12780a004cb6674f109586da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 10
+  columns: 20
   rows: 10
   gridInitialHeight: 10
   dotMaterial: {fileID: 2100000, guid: 24801080411299b48b3802bbf84a2ade, type: 2}

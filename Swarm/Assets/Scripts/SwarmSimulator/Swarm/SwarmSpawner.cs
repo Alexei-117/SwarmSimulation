@@ -14,13 +14,18 @@ namespace Swarm.Swarm
 {
     public class SwarmSpawner : MonoBehaviour
     {
+        [Header("Spawn Area")]
+        [SerializeField] private float2 initialPoint;
+        [SerializeField] private float2 endPoint;
+
+
         [Header("Agent data")]
         [SerializeField] private float gatheringSpeed;
-        [SerializeField] private float agentSpeed;
-        [SerializeField] private float colliderSize;
-        [SerializeField] private float communicationDistance;
-        [SerializeField] private float transferRate;
-        [SerializeField] private float consumptionRate;
+        [SerializeField] private float agentSpeed = 0.25f;
+        [SerializeField] private float colliderSize = 0.75f;
+        [SerializeField] private float communicationDistance = 3.5f;
+        [SerializeField] private float transferRate = 0.5f;
+        [SerializeField] private float consumptionRate = 0.01f;
         [SerializeField] private GameObject agentWithPhysics;
 
         [Header("Rendering")]
@@ -57,7 +62,7 @@ namespace Swarm.Swarm
 
             for (int cont = 0; cont < numberOfAgents; cont++)
             {
-                CreateAgent(random.NextFloat(0, gridWidth), random.NextFloat(0, gridHeight), random.NextUInt());
+                CreateAgent(random.NextFloat(initialPoint.x, endPoint.x), random.NextFloat(initialPoint.y, endPoint.y), random.NextUInt());
             }
         }
 
@@ -170,7 +175,7 @@ namespace Swarm.Swarm
 
             entityManager.AddComponentData<Scale>(entity, new Scale
             {
-                Value = 3.5f
+                Value = communicationDistance
             });
         }
 
@@ -198,7 +203,7 @@ namespace Swarm.Swarm
 
             entityManager.AddComponentData<Scale>(entity, new Scale
             {
-                Value = 0.75f
+                Value = colliderSize
             });
         }
 

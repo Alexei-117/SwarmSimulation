@@ -12,15 +12,15 @@ namespace Swarm
     public class GenericInformation : MonoBehaviour
     {
         [Header("Meta data")]
-        [SerializeField] public float TimeStep;
+        [SerializeField] public float TimeStep = 1.0f;
 
         [Header("Agents data")]
-        [SerializeField] public float AgentSize;
-        [SerializeField] public int NumberOfAgents;
+        [SerializeField] public float AgentSize = 1.0f;
+        [SerializeField] public int NumberOfAgents = 375;
 
         [Header("Layout data")]
-        [SerializeField] public float LayoutWidth;
-        [SerializeField] public float LayoutHeight;
+        [SerializeField] public float LayoutWidth = 80.0f;
+        [SerializeField] public float LayoutHeight = 40.0f;
         public float GridTileWidth;
         public float GridTileHeight;
 

@@ -56,10 +56,10 @@ namespace Swarm.Swarm
                     potentialA.Value += difference;
                 }
 
-                if (potentialA.Value < 0)
+                if (potentialA.Value < 0.01f)
                     potentialA.Value = 0;
 
-                if (potentialB.Value < 0)
+                if (potentialB.Value < 0.01f)
                     potentialB.Value = 0;
 
                 potentialGroup[entityA] = potentialA;
