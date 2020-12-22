@@ -33,11 +33,11 @@ namespace Swarm.Movement
 
             public void Execute(TriggerEvent triggerEvent)
             {
-                Entity entityA = triggerEvent.Entities.EntityA;
-                Entity entityB = triggerEvent.Entities.EntityB;
+                Entity entityA = triggerEvent.EntityA;
+                Entity entityB = triggerEvent.EntityB;
 
-                if (!collisionGroup.Exists(entityA)
-                    || !collisionGroup.Exists(entityB))
+                if (!collisionGroup.HasComponent(entityA)
+                    || !collisionGroup.HasComponent(entityB))
                 {
                     return;
                 }

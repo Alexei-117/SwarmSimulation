@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using Unity.Entities;
 using UnityEngine;
+using UnityEngine.Scripting;
 
 namespace Swarm
 {
@@ -26,15 +27,22 @@ namespace Swarm
 
         void Start()
         {
+            // Metadata necessary for proper working 
+            //GarbageCollector.GCMode = GarbageCollector.Mode.Disabled; // => not possible on the editor
+
+            // Create generic information
             genericInformation = GetComponent<GenericInformation>();
             entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
 
+            // Initialize spawners
             GetSpawners();
             InitializeSpawners();
 
+            // Set data into generic information
             genericInformation.SetEntityManager(entityManager);
             genericInformation.SetData();
 
+            // Start systems
             InitializeSystems();
             RunSystems();
         }

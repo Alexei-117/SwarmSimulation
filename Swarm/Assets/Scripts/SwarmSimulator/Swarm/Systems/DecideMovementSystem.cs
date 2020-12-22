@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Swarm.Swarm
 {
-    [UpdateBefore(typeof(MoveForwardSystem))]
+    [UpdateBefore(typeof(CleanPotentialValueSystem))]
     public class DecideMovementSystem : SystemBaseManageable
     {
         protected override void OnCreate()
@@ -16,7 +16,7 @@ namespace Swarm.Swarm
 
         protected override void OnUpdate()
         {
-            Entities.ForEach((ref MoveForward moveForward, ref RandomData brownianMotion, ref HighestPotentialAgent highestPotentialAgent) =>
+            this.Dependency = Entities.ForEach((ref MoveForward moveForward, ref RandomData brownianMotion, ref HighestPotentialAgent highestPotentialAgent) =>
             {
                 if (highestPotentialAgent.Potential == 0)
                 {
@@ -29,9 +29,11 @@ namespace Swarm.Swarm
                     moveForward.Direction = highestPotentialAgent.Direction;
                 }
 
-                highestPotentialAgent.Potential = 0;
+                //highestPotentialAgent.Potential = 0;
                 highestPotentialAgent.Direction = float3.zero;
-            }).ScheduleParallel();
+            }).ScheduleParallel(this.Dependency);
+
+            this.Dependency.Complete();
         }
     }
 }

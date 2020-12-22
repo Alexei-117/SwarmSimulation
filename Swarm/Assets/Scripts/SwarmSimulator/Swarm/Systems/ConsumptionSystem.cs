@@ -17,6 +17,8 @@ namespace Swarm.Swarm
             {
                 potential.Value -= potential.Value * c.Value;
             }).ScheduleParallel(this.Dependency);
+
+            this.Dependency.Complete();
         }
     }
 }

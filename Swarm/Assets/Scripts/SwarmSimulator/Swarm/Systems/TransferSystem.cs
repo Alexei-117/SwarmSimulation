@@ -23,18 +23,18 @@ namespace Swarm.Swarm
             stepPhysicsWorld = World.GetOrCreateSystem<StepPhysicsWorld>();
         }
 
-        [BurstCompile]
+        //[BurstCompile]
         struct TransferJob : ITriggerEventsJob
         {
             public ComponentDataFromEntity<PotentialFieldAgent> potentialGroup;
 
             public void Execute(TriggerEvent triggerEvent)
             {
-                Entity entityA = triggerEvent.Entities.EntityA;
-                Entity entityB = triggerEvent.Entities.EntityB;
+                Entity entityA = triggerEvent.EntityA;
+                Entity entityB = triggerEvent.EntityB;
 
-                if (!potentialGroup.Exists(entityA)
-                    || !potentialGroup.Exists(entityB))
+                if (!potentialGroup.HasComponent(entityA)
+                    || !potentialGroup.HasComponent(entityB))
                 {
                     return;
                 }
@@ -61,6 +61,8 @@ namespace Swarm.Swarm
 
                 if (potentialB.Value < 0.01f)
                     potentialB.Value = 0;
+
+
 
                 potentialGroup[entityA] = potentialA;
                 potentialGroup[entityB] = potentialB;

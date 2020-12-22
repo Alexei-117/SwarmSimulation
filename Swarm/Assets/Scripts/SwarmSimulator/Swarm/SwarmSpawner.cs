@@ -2,6 +2,7 @@
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Physics;
+using Unity.Physics.Authoring;
 using Unity.Rendering;
 using Unity.Transforms;
 using UnityEngine;
@@ -62,11 +63,11 @@ namespace Swarm.Swarm
 
             for (int cont = 0; cont < numberOfAgents; cont++)
             {
-                CreateAgent(random.NextFloat(initialPoint.x, endPoint.x), random.NextFloat(initialPoint.y, endPoint.y), random.NextUInt());
+                CreateAgent(random.NextFloat(initialPoint.x, endPoint.x), random.NextFloat(initialPoint.y, endPoint.y), random.NextUInt(), cont);
             }
         }
 
-        private Entity CreateAgent(float x, float z, uint seed)
+        private Entity CreateAgent(float x, float z, uint seed, int index)
         {
             BlobAssetReference<Collider> sourceCollider = entityManager.GetComponentData<PhysicsCollider>(entityWithPhysics).Value;
 
@@ -77,8 +78,8 @@ namespace Swarm.Swarm
                 Value = new float3(x, 0f, z)
             });
 
-            CreateCommunicationArea(x, z);
-            CreateCollisionArea(x, z);
+            CreateCommunicationArea(x, z, index);
+            CreateCollisionArea(x, z, index);
 
             entityManager.SetComponentData<PhysicsCollider>(entity, new PhysicsCollider
             {
@@ -151,7 +152,7 @@ namespace Swarm.Swarm
             return entity;
         }
 
-        private void CreateCommunicationArea(float x, float z)
+        private void CreateCommunicationArea(float x, float z, int index)
         {
 
             ComponentType[] components = GenericInformation.GetGenericComponents();
@@ -161,6 +162,11 @@ namespace Swarm.Swarm
             });
 
             Entity entity = entityManager.CreateEntity(entityManager.CreateArchetype(components));
+
+            entityManager.SetComponentData<CommunicationAreaTag>(entity, new CommunicationAreaTag
+            {
+                AgentIndex = index
+            });
 
             entityManager.SetComponentData<Translation>(entity, new Translation
             {
@@ -179,7 +185,7 @@ namespace Swarm.Swarm
             });
         }
 
-        private void CreateCollisionArea(float x, float z)
+        private void CreateCollisionArea(float x, float z, int index)
         {
 
             ComponentType[] components = GenericInformation.GetGenericComponents();
@@ -189,6 +195,12 @@ namespace Swarm.Swarm
             });
 
             Entity entity = entityManager.CreateEntity(entityManager.CreateArchetype(components));
+
+
+            entityManager.SetComponentData<CollisionAreaTag>(entity, new CollisionAreaTag
+            {
+                AgentIndex = index
+            });
 
             entityManager.SetComponentData<Translation>(entity, new Translation
             {

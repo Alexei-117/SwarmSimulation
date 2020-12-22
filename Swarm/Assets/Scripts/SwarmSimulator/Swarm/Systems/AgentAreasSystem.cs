@@ -17,54 +17,27 @@ public class AgentAreasSystem : SystemBaseManageable
         Name = "AgentAreas";
     }
 
-    [BurstCompile]
-    struct MoveCommunicationAreaToAgentJob : IJobForEachWithEntity<CommunicationAreaTag, Translation>
+    protected override void OnStartRunning()
     {
-        [ReadOnly]
-        public NativeArray<float3> agents;
-
-        public void Execute(Entity entity, int index, [ReadOnly] ref CommunicationAreaTag tag, ref Translation t)
-        {
-            t.Value = agents[index];
-        }
-    }
-
-    [BurstCompile]
-    struct MoveCollisionAreaToAgentJob : IJobForEachWithEntity<CollisionAreaTag, Translation>
-    {
-        [ReadOnly]
-        public NativeArray<float3> agents;
-
-        public void Execute(Entity entity, int index, [ReadOnly] ref CollisionAreaTag tag, ref Translation t)
-        {
-            t.Value = agents[index] + new float3(0.0f, 0.01f, 0.0f);
-        }
+        base.OnStartRunning();
     }
 
     protected override void OnUpdate()
     {
+        var agentsTranslations = GetEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>()).ToComponentDataArray<Translation>(Allocator.TempJob);
 
-        var agentTranslations = GetEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>())
-                .ToComponentDataArray<Translation>(Allocator.TempJob);
-
-        var job = new MoveCommunicationAreaToAgentJob()
+        this.Dependency = Entities.ForEach((ref Translation t, in CommunicationAreaTag c) =>
         {
-            agents = agentTranslations.Reinterpret<float3>()
-        };
+            t.Value = agentsTranslations[c.AgentIndex].Value;
+        }).Schedule(this.Dependency);
 
-        var secondJob = new MoveCollisionAreaToAgentJob()
+        this.Dependency = Entities.ForEach((ref Translation t, in CollisionAreaTag c) =>
         {
-            agents = agentTranslations.Reinterpret<float3>()
-        };
+            t.Value = agentsTranslations[c.AgentIndex].Value + new float3(0.0f, 0.01f, 0.0f);
+        }).Schedule(this.Dependency);
 
-        JobHandle handle = job.Schedule(this, Dependency);
+        this.Dependency.Complete();
 
-        handle.Complete();
-
-        JobHandle secondHandle = secondJob.Schedule(this, Dependency);
-
-        secondHandle.Complete();
-
-        agentTranslations.Dispose();
+        agentsTranslations.Dispose();
     }
 }

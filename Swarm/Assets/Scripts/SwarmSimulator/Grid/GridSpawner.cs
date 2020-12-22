@@ -121,7 +121,6 @@ namespace Swarm.Grid
             float uvFactorX = 1.0f / columns;
             float uvFactorZ = 1.0f / rows;
 
-            int vertexIndex = 0;
             for (int z = 0; z < verticalVertices; z++)
             {
                 for (int x = 0; x < horizontalVertices; x++)

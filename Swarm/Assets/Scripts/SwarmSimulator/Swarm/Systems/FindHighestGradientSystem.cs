@@ -33,11 +33,11 @@ namespace Swarm.Swarm
 
             public void Execute(TriggerEvent triggerEvent)
             {
-                Entity entityA = triggerEvent.Entities.EntityA;
-                Entity entityB = triggerEvent.Entities.EntityB;
+                Entity entityA = triggerEvent.EntityA;
+                Entity entityB = triggerEvent.EntityB;
 
-                if (!potentialGroup.Exists(entityA)
-                    || !potentialGroup.Exists(entityB))
+                if (!potentialGroup.HasComponent(entityA)
+                    || !potentialGroup.HasComponent(entityB))
                 {
                     return;
                 }
