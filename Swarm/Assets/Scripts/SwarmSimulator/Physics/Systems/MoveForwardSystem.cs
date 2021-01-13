@@ -14,11 +14,11 @@ namespace Swarm.Movement
         protected override void OnUpdate()
         {
             float deltaTime = Time.DeltaTime;
-            this.Dependency = Entities.ForEach((ref Translation t, ref PreviousTranslation pt, in Speed speed, in MoveForward moveForward) =>
+            Dependency = Entities.ForEach((ref Translation t, ref PreviousTranslation pt, in Speed speed, in MoveForward moveForward) =>
             {
                 pt.Value = t.Value;
                 t.Value += moveForward.Direction * speed.Value * deltaTime;
-            }).ScheduleParallel(this.Dependency);
+            }).ScheduleParallel(Dependency);
 
             Dependency.Complete();
         }

@@ -26,7 +26,9 @@ namespace Swarm.Movement
                 {
                     c.Collided = true;
                 }
-            }).ScheduleParallel();
+            }).ScheduleParallel(Dependency);
+
+            Dependency.Complete();
         }
     }
 }

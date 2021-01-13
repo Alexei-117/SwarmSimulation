@@ -16,7 +16,7 @@ namespace Swarm.Swarm
 
         protected override void OnUpdate()
         {
-            this.Dependency = Entities.ForEach((ref MoveForward moveForward, ref RandomData brownianMotion, ref HighestPotentialAgent highestPotentialAgent) =>
+            Dependency = Entities.ForEach((ref MoveForward moveForward, ref RandomData brownianMotion, ref HighestPotentialAgent highestPotentialAgent) =>
             {
                 if (highestPotentialAgent.Potential == 0)
                 {
@@ -28,12 +28,9 @@ namespace Swarm.Swarm
                 {
                     moveForward.Direction = highestPotentialAgent.Direction;
                 }
+            }).ScheduleParallel(Dependency);
 
-                //highestPotentialAgent.Potential = 0;
-                highestPotentialAgent.Direction = float3.zero;
-            }).ScheduleParallel(this.Dependency);
-
-            this.Dependency.Complete();
+            Dependency.Complete();
         }
     }
 }

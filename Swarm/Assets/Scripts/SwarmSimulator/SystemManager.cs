@@ -18,6 +18,8 @@ namespace Swarm
         private static List<SystemBase> systems = new List<SystemBase>();
         private GenericInformation genericInformation;
         private EntityManager entityManager;
+
+        private SwarmSimulatorSystemGroup systemGroup;
         private float accumulatedTime = 0;
 
         /*Spawners*/
@@ -33,6 +35,7 @@ namespace Swarm
             // Create generic information
             genericInformation = GetComponent<GenericInformation>();
             entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
+            systemGroup = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SwarmSimulatorSystemGroup>();
 
             // Initialize spawners
             GetSpawners();

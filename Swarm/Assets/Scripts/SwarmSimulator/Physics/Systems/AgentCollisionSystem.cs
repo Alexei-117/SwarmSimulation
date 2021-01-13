@@ -63,11 +63,11 @@ namespace Swarm.Movement
         {
             var agentCollisionJob = new AgentCollisionJob()
             {
-                translationGroup = GetComponentDataFromEntity<Translation>(),
+                translationGroup = GetComponentDataFromEntity<Translation>(true),
                 collisionGroup = GetComponentDataFromEntity<Collision>()
             };
 
-            this.Dependency = agentCollisionJob.Schedule(stepPhysicsWorld.Simulation, ref buildPhysicsWorld.PhysicsWorld, this.Dependency);
+            Dependency = agentCollisionJob.Schedule(stepPhysicsWorld.Simulation, ref buildPhysicsWorld.PhysicsWorld, Dependency);
 
             Dependency.Complete();
         }

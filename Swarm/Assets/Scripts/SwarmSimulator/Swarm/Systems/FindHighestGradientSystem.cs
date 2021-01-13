@@ -6,10 +6,11 @@ using Unity.Physics;
 using Unity.Physics.Systems;
 using Unity.Transforms;
 using Unity.Mathematics;
+using UnityEngine;
 
 namespace Swarm.Swarm
 {
-    [UpdateBefore(typeof(DecideMovementSystem))]
+    [UpdateAfter(typeof(ConsumptionSystem))]
     public class FindHighestGradientSystem : SystemBaseManageable
     {
         private BuildPhysicsWorld buildPhysicsWorld;
@@ -27,8 +28,9 @@ namespace Swarm.Swarm
         [BurstCompile]
         struct GradientJob : ITriggerEventsJob
         {
-            public ComponentDataFromEntity<Translation> translationGroup;
-            public ComponentDataFromEntity<PotentialFieldAgent> potentialGroup;
+            // Optimizing with ReadOnly
+            [ReadOnly] public ComponentDataFromEntity<Translation> translationGroup;
+            [ReadOnly] public ComponentDataFromEntity<PotentialFieldAgent> potentialGroup;
             public ComponentDataFromEntity<HighestPotentialAgent> highestPotentialtGroup;
 
             public void Execute(TriggerEvent triggerEvent)
@@ -46,14 +48,25 @@ namespace Swarm.Swarm
                 Translation translationB = translationGroup[entityB];
 
                 HighestPotentialAgent highestPotentialAgentA = highestPotentialtGroup[entityA];
-                PotentialFieldAgent potentialB = potentialGroup[entityB];
+                HighestPotentialAgent highestPotentialAgentB = highestPotentialtGroup[entityB];
 
+                PotentialFieldAgent potentialA = potentialGroup[entityA];
+                PotentialFieldAgent potentialB = potentialGroup[entityB];
+                
                 if (potentialB.Value > highestPotentialAgentA.Potential)
                 {
                     highestPotentialAgentA.Potential = potentialB.Value;
                     highestPotentialAgentA.Direction = math.normalize( translationB.Value - translationA.Value );
 
                     highestPotentialtGroup[entityA] = highestPotentialAgentA;
+                }
+
+                if (potentialA.Value > highestPotentialAgentB.Potential)
+                {
+                    highestPotentialAgentB.Potential = potentialA.Value;
+                    highestPotentialAgentB.Direction = math.normalize( translationA.Value - translationB.Value );
+
+                    highestPotentialtGroup[entityB] = highestPotentialAgentB;
                 }
             }
         }
@@ -62,12 +75,12 @@ namespace Swarm.Swarm
         {
             var gradientJob = new GradientJob()
             {
-                translationGroup = GetComponentDataFromEntity<Translation>(),
-                potentialGroup = GetComponentDataFromEntity<PotentialFieldAgent>(),
+                translationGroup = GetComponentDataFromEntity<Translation>(true),
+                potentialGroup = GetComponentDataFromEntity<PotentialFieldAgent>(true),
                 highestPotentialtGroup = GetComponentDataFromEntity<HighestPotentialAgent>()
             };
 
-            this.Dependency = gradientJob.Schedule(stepPhysicsWorld.Simulation, ref buildPhysicsWorld.PhysicsWorld, this.Dependency);
+            Dependency = gradientJob.Schedule(stepPhysicsWorld.Simulation, ref buildPhysicsWorld.PhysicsWorld, Dependency);
 
             Dependency.Complete();
         }

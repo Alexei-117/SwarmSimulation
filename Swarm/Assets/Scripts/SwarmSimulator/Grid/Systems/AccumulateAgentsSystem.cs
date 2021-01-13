@@ -1,4 +1,5 @@
-﻿using Swarm.Swarm;
+﻿using Swarm.Movement;
+using Swarm.Swarm;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Jobs;
@@ -7,6 +8,7 @@ using Unity.Transforms;
 
 namespace Swarm.Grid
 {
+    [UpdateAfter(typeof(RestoreCollidedPositionSystem))]
     public class AccumulateAgentsSystem : SystemBaseManageable
     {
         protected override void OnCreate()
@@ -24,7 +26,7 @@ namespace Swarm.Grid
             float heightOfGrid = GridSpawner.gridTileHeight;
             int horizontalVertices = GridSpawner.horizontalVertices;
 
-            JobHandle handle = Entities.WithAll<AgentTag>().ForEach((in Translation t) =>
+            Dependency = Entities.WithAll<AgentTag>().ForEach((in Translation t) =>
             {
                 int posX = (int) math.floor(t.Value.x / widthOfGrid + 0.5f);
                 int posZ = (int) math.floor(t.Value.z / heightOfGrid + 0.5f);
@@ -32,7 +34,7 @@ namespace Swarm.Grid
                 agents.Add(posZ * horizontalVertices + posX, t);
             }).Schedule(Dependency);
 
-            JobHandle secondHandle = Entities.WithAll<GridDotTag>().ForEach((ref AccumulatedAgents accumulatedAgents, in Translation t) =>
+            Dependency = Entities.WithAll<GridDotTag>().ForEach((ref AccumulatedAgents accumulatedAgents, in Translation t) =>
             {
                 accumulatedAgents.Value = 0;
                 int hash = ((int)(t.Value.z / heightOfGrid) * horizontalVertices) + (int)(t.Value.x / widthOfGrid);
@@ -41,9 +43,9 @@ namespace Swarm.Grid
                 {
                     accumulatedAgents.Value += agents.CountValuesForKey(hash);
                 }
-            }).Schedule(handle);
+            }).Schedule(Dependency);
 
-            secondHandle.Complete();
+            Dependency.Complete();
 
             agents.Dispose();
         }

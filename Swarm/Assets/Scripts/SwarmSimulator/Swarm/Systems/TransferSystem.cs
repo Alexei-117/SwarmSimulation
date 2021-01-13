@@ -42,6 +42,12 @@ namespace Swarm.Swarm
                 PotentialFieldAgent potentialA = potentialGroup[entityA];
                 PotentialFieldAgent potentialB = potentialGroup[entityB];
 
+                if (potentialA.Value < 0.01f)
+                    potentialA.Value = 0;
+
+                if (potentialB.Value < 0.01f)
+                    potentialB.Value = 0;
+
                 if (potentialA.Value > potentialB.Value)
                 {
                     float difference = (potentialA.Value - potentialB.Value) * potentialA.TransferRate;
@@ -56,14 +62,6 @@ namespace Swarm.Swarm
                     potentialA.Value += difference;
                 }
 
-                if (potentialA.Value < 0.01f)
-                    potentialA.Value = 0;
-
-                if (potentialB.Value < 0.01f)
-                    potentialB.Value = 0;
-
-
-
                 potentialGroup[entityA] = potentialA;
                 potentialGroup[entityB] = potentialB;
             }
@@ -76,27 +74,10 @@ namespace Swarm.Swarm
                 potentialGroup = GetComponentDataFromEntity<PotentialFieldAgent>()
             };
 
-            this.Dependency = transferJob.Schedule(stepPhysicsWorld.Simulation, ref buildPhysicsWorld.PhysicsWorld, this.Dependency);
+            Dependency = transferJob.Schedule(stepPhysicsWorld.Simulation, ref buildPhysicsWorld.PhysicsWorld, Dependency);
 
             // Finishes all accumulated events before going for the next task
             Dependency.Complete();
         }
     }
 }
-
-/* 
- Así que, el sistema de eventos:
-
--> Cojo la posición de un objeto, y guardo el entity en un array de una matriz de arrays.
--> Comparo mis posiciones solamente con las posiciones adyacentes que contienen ese array.
--> Cada array cubre de área un diámetro entero de uno de los robots desde su punto central.
-
--> Se puede hacer con hasheo antes (?) A lo mejor a eso iba la ecuación?
--> Se puede hacer un NativeHashMaps y asignar un int / hash a cada array?
-
-[][][B][][]
-[][C][X-Y-Z][A][]
-[][][D][][]
-[][][][][]
- 
- */

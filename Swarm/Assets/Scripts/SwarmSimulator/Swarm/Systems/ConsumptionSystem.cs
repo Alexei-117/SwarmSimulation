@@ -13,12 +13,12 @@ namespace Swarm.Swarm
 
         protected override void OnUpdate()
         {
-            this.Dependency = Entities.ForEach((ref PotentialFieldAgent potential, in Consumption c) =>
+            Dependency = Entities.ForEach((ref PotentialFieldAgent potential, in Consumption c) =>
             {
                 potential.Value -= potential.Value * c.Value;
-            }).ScheduleParallel(this.Dependency);
+            }).ScheduleParallel(Dependency);
 
-            this.Dependency.Complete();
+            Dependency.Complete();
         }
     }
 }

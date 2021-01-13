@@ -8,7 +8,7 @@ using Unity.Jobs;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-[UpdateAfter(typeof(MoveForwardSystem))]
+[UpdateAfter(typeof(RestoreCollidedPositionSystem))]
 public class AgentAreasSystem : SystemBaseManageable
 {
     protected override void OnCreate()
@@ -26,17 +26,17 @@ public class AgentAreasSystem : SystemBaseManageable
     {
         var agentsTranslations = GetEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>()).ToComponentDataArray<Translation>(Allocator.TempJob);
 
-        this.Dependency = Entities.ForEach((ref Translation t, in CommunicationAreaTag c) =>
+        Dependency = Entities.ForEach((ref Translation t, in CommunicationAreaTag c) =>
         {
             t.Value = agentsTranslations[c.AgentIndex].Value;
-        }).Schedule(this.Dependency);
+        }).Schedule(Dependency);
 
-        this.Dependency = Entities.ForEach((ref Translation t, in CollisionAreaTag c) =>
+        Dependency = Entities.ForEach((ref Translation t, in CollisionAreaTag c) =>
         {
             t.Value = agentsTranslations[c.AgentIndex].Value + new float3(0.0f, 0.01f, 0.0f);
-        }).Schedule(this.Dependency);
+        }).Schedule(Dependency);
 
-        this.Dependency.Complete();
+        Dependency.Complete();
 
         agentsTranslations.Dispose();
     }

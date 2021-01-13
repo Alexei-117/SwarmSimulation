@@ -16,12 +16,13 @@ namespace Swarm.Swarm
 
         protected override void OnUpdate()
         {
-            this.Dependency = Entities.ForEach((ref MoveForward moveForward, ref HighestPotentialAgent highestPotentialAgent) =>
+            Dependency = Entities.ForEach((ref MoveForward moveForward, ref HighestPotentialAgent highestPotentialAgent) =>
             {
                 highestPotentialAgent.Potential = 0;
-            }).ScheduleParallel(this.Dependency);
+                highestPotentialAgent.Direction = float3.zero;
+            }).ScheduleParallel(Dependency);
 
-            this.Dependency.Complete();
+            Dependency.Complete();
         }
     }
 }

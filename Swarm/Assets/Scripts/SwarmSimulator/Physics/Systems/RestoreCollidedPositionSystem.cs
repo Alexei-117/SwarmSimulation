@@ -19,10 +19,12 @@ namespace Swarm.Movement
             {
                 if (c.Collided)
                 {
-                    t.Value = pt.Value;
+                    t.Value = pt.Value - t.Value;
                     c.Collided = false;
                 }
-            }).ScheduleParallel();
+            }).ScheduleParallel(Dependency);
+
+            Dependency.Complete();
         }
     }
 }

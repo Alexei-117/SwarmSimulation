@@ -10,7 +10,6 @@ using UnityEngine;
 namespace Swarm.Grid
 {
     [UpdateAfter(typeof(AccumulateAgentsSystem))]
-    [UpdateBefore(typeof(MoveForwardSystem))]
     public class PlotGridSystem : SystemBaseManageable
     {
         private Mesh gridMesh;
@@ -29,12 +28,14 @@ namespace Swarm.Grid
 
         protected override void OnUpdate()
         {
-            Entities.WithAll<GridDotTag>().ForEach((ref MoveForward moveForward, in Translation t, in AccumulatedAgents agents, in PlotMetadata plotMeta) =>
+            Dependency = Entities.WithAll<GridDotTag>().ForEach((ref MoveForward moveForward, in Translation t, in AccumulatedAgents agents, in PlotMetadata plotMeta) =>
             {
                 float yMovement = agents.Value + plotMeta.InitialHeight < t.Value.y ? -1 : 1;
                 yMovement = math.abs(agents.Value + plotMeta.InitialHeight - t.Value.y) < 0.05 ? 0 : yMovement;
                 moveForward.Direction = new float3(0, yMovement, 0);
-            }).ScheduleParallel();
+            }).ScheduleParallel(Dependency);
+
+            Dependency.Complete();
 
             meshVertices = new NativeArray<Vector3>(gridMesh.vertexCount, Allocator.TempJob);
             Entities.WithoutBurst().ForEach((in GridDotTag gridDot, in Translation t) =>
