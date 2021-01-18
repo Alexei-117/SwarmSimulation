@@ -25,7 +25,7 @@ namespace Swarm.Swarm
             stepPhysicsWorld = World.GetOrCreateSystem<StepPhysicsWorld>();
         }
 
-        [BurstCompile]
+        //[BurstCompile]
         struct GradientJob : ITriggerEventsJob
         {
             // Optimizing with ReadOnly
@@ -52,22 +52,25 @@ namespace Swarm.Swarm
 
                 PotentialFieldAgent potentialA = potentialGroup[entityA];
                 PotentialFieldAgent potentialB = potentialGroup[entityB];
-                
+
+                //Debug.Log("Potencial A: " + potentialA.Value + ", highestPotentialAgent A: " + highestPotentialAgentA.Potential);
+                //Debug.Log("Potencial B: " + potentialB.Value + ", highestPotentialAgent B: " + highestPotentialAgentB.Potential);
+
                 if (potentialB.Value > highestPotentialAgentA.Potential)
                 {
+
                     highestPotentialAgentA.Potential = potentialB.Value;
                     highestPotentialAgentA.Direction = math.normalize( translationB.Value - translationA.Value );
-
-                    highestPotentialtGroup[entityA] = highestPotentialAgentA;
                 }
 
                 if (potentialA.Value > highestPotentialAgentB.Potential)
                 {
                     highestPotentialAgentB.Potential = potentialA.Value;
                     highestPotentialAgentB.Direction = math.normalize( translationA.Value - translationB.Value );
-
-                    highestPotentialtGroup[entityB] = highestPotentialAgentB;
                 }
+
+                highestPotentialtGroup[entityA] = highestPotentialAgentA;
+                highestPotentialtGroup[entityB] = highestPotentialAgentB;
             }
         }
 

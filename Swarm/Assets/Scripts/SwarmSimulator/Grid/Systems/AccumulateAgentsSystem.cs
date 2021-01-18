@@ -20,7 +20,7 @@ namespace Swarm.Grid
         protected override void OnUpdate()
         {
             NativeMultiHashMap<int, Translation> agents = new NativeMultiHashMap<int, Translation>(
-                GenericInformation.NumberOfAgents, Allocator.TempJob);
+                GenericInformation.NumberOfAgents, Allocator.Persistent);
 
             float widthOfGrid = GridSpawner.gridTileWidth;
             float heightOfGrid = GridSpawner.gridTileHeight;
@@ -31,7 +31,10 @@ namespace Swarm.Grid
                 int posX = (int) math.floor(t.Value.x / widthOfGrid + 0.5f);
                 int posZ = (int) math.floor(t.Value.z / heightOfGrid + 0.5f);
 
-                agents.Add(posZ * horizontalVertices + posX, t);
+                if (posX >= 0 && posZ >= 0)
+                {
+                    agents.Add(posZ * horizontalVertices + posX, t);
+                }
             }).Schedule(Dependency);
 
             Dependency = Entities.WithAll<GridDotTag>().ForEach((ref AccumulatedAgents accumulatedAgents, in Translation t) =>

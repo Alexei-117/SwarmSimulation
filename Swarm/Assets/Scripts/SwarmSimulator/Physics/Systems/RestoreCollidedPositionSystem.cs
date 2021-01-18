@@ -1,6 +1,8 @@
 ﻿using Swarm.Swarm;
 using Unity.Entities;
+using Unity.Mathematics;
 using Unity.Transforms;
+using UnityEngine;
 
 namespace Swarm.Movement
 {
@@ -15,11 +17,11 @@ namespace Swarm.Movement
 
         protected override void OnUpdate()
         {
-            Entities.WithAll<AgentTag>().ForEach((ref Translation t, ref Collision c, in PreviousTranslation pt) =>
+            Dependency = Entities.WithAll<AgentTag>().ForEach((ref Translation t, ref Collision c, in PreviousTranslation pt) =>
             {
                 if (c.Collided)
                 {
-                    t.Value = pt.Value - t.Value;
+                    t.Value -= math.normalize(c.CollisionDirection) * 0.1f;
                     c.Collided = false;
                 }
             }).ScheduleParallel(Dependency);

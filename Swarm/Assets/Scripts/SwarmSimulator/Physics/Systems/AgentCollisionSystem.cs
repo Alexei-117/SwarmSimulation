@@ -53,6 +53,9 @@ namespace Swarm.Movement
                     collisionA.Collided = true;
                     collisionB.Collided = true;
 
+                    collisionA.CollisionDirection = translationB.Value - translationA.Value;
+                    collisionB.CollisionDirection = translationA.Value - translationB.Value;
+
                     collisionGroup[entityA] = collisionA;
                     collisionGroup[entityB] = collisionB;
                 }

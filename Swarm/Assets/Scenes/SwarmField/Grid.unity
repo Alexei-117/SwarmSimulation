@@ -215,10 +215,10 @@ MonoBehaviour:
   agentSpeed: 0.25
   colliderSize: 1.25
   communicationDistance: 4
-  transferRate: 0.5
+  transferRate: 0.4
   consumptionRate: 0.01
   agentWithPhysics: {fileID: 1209638406}
-  agentMesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  agentMesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
   agentMaterial: {fileID: 2100000, guid: 47f04029d9e65fd42a14c351f30d57f4, type: 2}
   communcationAreaMesh: {fileID: -2432090755550338912, guid: 352a056f80e54c14cbfb99e4e91a56da,
     type: 3}
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeStep: 1
   AgentSize: 1
-  NumberOfAgents: 385
+  NumberOfAgents: 375
   LayoutWidth: 80
   LayoutHeight: 40
   GridTileWidth: 0
@@ -675,8 +675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160ab2c12780a004cb6674f109586da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 20
+  columns: 200
   rows: 10
   gridInitialHeight: 10
-  speed: 2
+  speed: 10
   dotMaterial: {fileID: 2100000, guid: 24801080411299b48b3802bbf84a2ade, type: 2}

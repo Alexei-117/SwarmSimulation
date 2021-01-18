@@ -42,10 +42,10 @@ namespace Swarm.Swarm
                 PotentialFieldAgent potentialA = potentialGroup[entityA];
                 PotentialFieldAgent potentialB = potentialGroup[entityB];
 
-                if (potentialA.Value < 0.01f)
+                if (potentialA.Value < 0.00001f)
                     potentialA.Value = 0;
 
-                if (potentialB.Value < 0.01f)
+                if (potentialB.Value < 0.00001f)
                     potentialB.Value = 0;
 
                 if (potentialA.Value > potentialB.Value)
@@ -53,10 +53,7 @@ namespace Swarm.Swarm
                     float difference = (potentialA.Value - potentialB.Value) * potentialA.TransferRate;
                     potentialA.Value -= difference;
                     potentialB.Value += difference;
-                }
-
-                if (potentialB.Value > potentialA.Value)
-                {
+                } else {
                     float difference = (potentialB.Value - potentialA.Value) * potentialA.TransferRate;
                     potentialB.Value -= difference;
                     potentialA.Value += difference;

@@ -23,7 +23,7 @@ namespace Swarm.Swarm
             NativeArray<float3> lightsPositions = GenericInformation.GetLightTranslations.Reinterpret<float3>();
             NativeArray<float> lightsSizes = GenericInformation.GetLights.Reinterpret<float>();
 
-            Dependency = Entities.WithoutBurst().WithAll<AgentTag>().ForEach((ref PotentialFieldAgent potentialField, in Translation t, in Gather gather) =>
+            Dependency = Entities.WithAll<AgentTag>().ForEach((ref PotentialFieldAgent potentialField, in Translation t, in Gather gather) =>
             {
                 for (int i = 0; i < lightsPositions.Length; i++)
                 {
