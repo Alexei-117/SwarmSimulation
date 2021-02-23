@@ -53,9 +53,6 @@ namespace Swarm.Swarm
                 PotentialFieldAgent potentialA = potentialGroup[entityA];
                 PotentialFieldAgent potentialB = potentialGroup[entityB];
 
-                //Debug.Log("Potencial A: " + potentialA.Value + ", highestPotentialAgent A: " + highestPotentialAgentA.Potential);
-                //Debug.Log("Potencial B: " + potentialB.Value + ", highestPotentialAgent B: " + highestPotentialAgentB.Potential);
-
                 if (potentialB.Value > highestPotentialAgentA.Potential)
                 {
 
