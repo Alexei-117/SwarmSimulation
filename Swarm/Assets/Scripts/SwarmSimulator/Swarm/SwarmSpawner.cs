@@ -59,7 +59,7 @@ namespace Swarm.Swarm
                 GameObjectConversionSettings.FromWorld(entityManager.World, asset ));
 
             Random random = new Random();
-            random.InitState((uint)((int)Time.time * 100000.0f + 1));
+            random.InitState((uint)UnityEngine.Random.Range(1, 100000));
 
             for (int cont = 0; cont < numberOfAgents; cont++)
             {

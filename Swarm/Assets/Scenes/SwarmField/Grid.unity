@@ -643,7 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b99545be85b4a4889a91e1a5ec24de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeStep: 0.25
+  TimeStep: 1
   AgentSize: 1
   NumberOfAgents: 375
   LayoutWidth: 80
@@ -724,8 +724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160ab2c12780a004cb6674f109586da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 80
-  rows: 40
+  columns: 20
+  rows: 10
   gridInitialHeight: 10
   speed: 10
   dotMaterial: {fileID: 2100000, guid: 24801080411299b48b3802bbf84a2ade, type: 2}
