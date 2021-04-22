@@ -58,16 +58,6 @@ namespace Swarm
             return returnComponents;
         }
 
-        public float GetLayoutWidth()
-        {
-            return LayoutWidth;
-        }
-
-        public float GetLayoutHeight()
-        {
-            return LayoutHeight;
-        }
-
         public void SetEntityManager(EntityManager entityManager)
         {
             this.entityManager = entityManager;
