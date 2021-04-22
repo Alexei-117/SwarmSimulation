@@ -28,6 +28,7 @@ namespace Swarm.Movement
         [BurstCompile]
         struct AgentCollisionJob : ITriggerEventsJob
         {
+            [ReadOnly] public float agentSize;
             [ReadOnly] public ComponentDataFromEntity<Translation> translationGroup;
             public ComponentDataFromEntity<Collision> collisionGroup;
 
@@ -47,8 +48,9 @@ namespace Swarm.Movement
 
                 Collision collisionA = collisionGroup[entityA];
                 Collision collisionB = collisionGroup[entityB];
-
-                if (math.distance(translationA.Value, translationB.Value) <= collisionA.Radius)
+                
+                /// Inside the trigger collision (Communication area) there is collision area, which is the collision distance to another agent + radius of the other agent.
+                if (math.distance(translationA.Value, translationB.Value) <= collisionA.Radius + agentSize * 0.5f)
                 {
                     collisionA.Collided = true;
                     collisionB.Collided = true;
@@ -64,8 +66,11 @@ namespace Swarm.Movement
 
         protected override void OnUpdate()
         {
+            float agentSize = GenericInformation.AgentSize;
+
             var agentCollisionJob = new AgentCollisionJob()
             {
+                agentSize = agentSize,
                 translationGroup = GetComponentDataFromEntity<Translation>(true),
                 collisionGroup = GetComponentDataFromEntity<Collision>()
             };
