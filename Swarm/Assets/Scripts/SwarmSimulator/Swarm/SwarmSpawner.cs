@@ -21,12 +21,12 @@ namespace Swarm.Swarm
 
 
         [Header("Agent data")]
-        [SerializeField] private float gatheringSpeed = 50.0f;
-        [SerializeField] private float agentSpeed = 0.25f;
-        [SerializeField] private float colliderSize = 1.75f;
-        [SerializeField] private float communicationDistance = 4.5f;
-        [SerializeField] private float transferRate = 0.5f;
-        [SerializeField] private float consumptionRate = 0.01f;
+        [SerializeField] private float gatheringSpeed;
+        [SerializeField] private float agentSpeed;
+        [SerializeField] private float colliderSize;
+        [SerializeField] private float communicationDistance;
+        [SerializeField] private float transferRate;
+        [SerializeField] private float consumptionRate;
         [SerializeField] private GameObject agentWithPhysics;
 
         [Header("Rendering")]

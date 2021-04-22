@@ -213,9 +213,9 @@ MonoBehaviour:
     y: 40
   gatheringSpeed: 50
   agentSpeed: 0.25
-  colliderSize: 1.25
-  communicationDistance: 4
-  transferRate: 0.4
+  colliderSize: 0.75
+  communicationDistance: 3.5
+  transferRate: 0.5
   consumptionRate: 0.01
   agentWithPhysics: {fileID: 1209638406}
   agentMesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
@@ -334,6 +334,8 @@ GameObject:
   - component: {fileID: 1209638409}
   - component: {fileID: 1209638408}
   - component: {fileID: 1209638407}
+  - component: {fileID: 1209638411}
+  - component: {fileID: 1209638410}
   m_Layer: 0
   m_Name: AgentWithPhysics
   m_TagString: Untagged
@@ -542,12 +544,61 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209638406}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 19.06533, y: -1.7096493, z: 8.724573}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &1209638410
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209638406}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1209638411
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209638406}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &1449347356
 GameObject:
   m_ObjectHideFlags: 0
@@ -592,13 +643,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b99545be85b4a4889a91e1a5ec24de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeStep: 1
+  TimeStep: 0.25
   AgentSize: 1
   NumberOfAgents: 375
   LayoutWidth: 80
   LayoutHeight: 40
-  GridTileWidth: 0
-  GridTileHeight: 0
 --- !u!114 &1449347359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,8 +724,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160ab2c12780a004cb6674f109586da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  columns: 200
-  rows: 10
+  columns: 80
+  rows: 40
   gridInitialHeight: 10
   speed: 10
   dotMaterial: {fileID: 2100000, guid: 24801080411299b48b3802bbf84a2ade, type: 2}
