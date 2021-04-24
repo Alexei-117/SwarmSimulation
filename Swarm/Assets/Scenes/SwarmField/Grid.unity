@@ -666,7 +666,7 @@ MonoBehaviour:
   - Consumption
   - FindHighestGradient
   - DecideMovement
-  - MoveForward-
+  - MoveForward
   - CleanPotentialValue
   - AgentCollision
   - BoundaryCollision
