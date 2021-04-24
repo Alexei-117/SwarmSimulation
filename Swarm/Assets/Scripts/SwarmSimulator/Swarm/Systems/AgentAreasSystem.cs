@@ -28,12 +28,12 @@ public class AgentAreasSystem : SystemBaseManageable
 
         Dependency = Entities.ForEach((ref Translation t, in CommunicationAreaTag c) =>
         {
-            t.Value = agentsTranslations[c.AgentIndex].Value;
+            t.Value = agentsTranslations[c.AgentIndex].Value + new float3(0.0f, 0.01f, 0.0f);
         }).Schedule(Dependency);
 
         Dependency = Entities.ForEach((ref Translation t, in CollisionAreaTag c) =>
         {
-            t.Value = agentsTranslations[c.AgentIndex].Value + new float3(0.0f, 0.01f, 0.0f);
+            t.Value = agentsTranslations[c.AgentIndex].Value + new float3(0.0f, 0.02f, 0.0f);
         }).Schedule(Dependency);
 
         Dependency.Complete();

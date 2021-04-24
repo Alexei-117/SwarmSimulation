@@ -162,7 +162,7 @@ namespace Swarm.Swarm
 
             entityManager.SetComponentData<Translation>(entity, new Translation
             {
-                Value = new float3(x, 0f, z)
+                Value = new float3(x, 5.0f, z)
             });
 
             entityManager.SetSharedComponentData<RenderMesh>(entity, new RenderMesh
@@ -170,7 +170,6 @@ namespace Swarm.Swarm
                 mesh = communcationAreaMesh,
                 material = communicationAreaMaterial
             });
-
 
             /// Communication distance is defined as the distance till you reach another agent.
             /// A few assumptios are made:
@@ -204,7 +203,7 @@ namespace Swarm.Swarm
 
             entityManager.SetComponentData<Translation>(entity, new Translation
             {
-                Value = new float3(x, 1.0f, z)
+                Value = new float3(x, 2.0f, z)
             });
 
             entityManager.SetSharedComponentData<RenderMesh>(entity, new RenderMesh
