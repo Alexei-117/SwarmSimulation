@@ -17,30 +17,33 @@ namespace Swarm.Movement
 
         protected override void OnUpdate()
         {
-            Dependency = Entities.WithAll<AgentTag>().ForEach((ref Collision c, in Translation t, in HorizontalLimits limits) =>
+            float layoutWidth = GenericInformation.LayoutWidth;
+            float layoutHeight = GenericInformation.LayoutHeight;
+
+            Dependency = Entities.WithAll<AgentTag>().ForEach((ref Collision c, in Translation t) =>
             {
-                if (t.Value.x < limits.x1)
+                if (t.Value.x < 0.0f)
                 {
                     c.Collided = true;
-                    c.CollisionDirection = new float3(limits.x1, 0.0f, 0.0f);
+                    c.CollisionDirection = new float3(-1.0f, 0.0f, 0.0f);
                 }
 
-                if (t.Value.x > limits.x2)
+                if (t.Value.x > layoutWidth)
                 {
                     c.Collided = true;
-                    c.CollisionDirection = new float3(limits.x2, 0.0f, 0.0f);
+                    c.CollisionDirection = new float3(1.0f, 0.0f, 0.0f);
                 }
 
-                if (t.Value.z < limits.z1)
+                if (t.Value.z < 0.0f)
                 {
                     c.Collided = true;
-                    c.CollisionDirection = new float3(0.0f, 0.0f, limits.z1);
+                    c.CollisionDirection = new float3(0.0f, 0.0f, -1.0f);
                 }
 
-                if (t.Value.z > limits.z2)
+                if (t.Value.z > layoutHeight)
                 {
                     c.Collided = true;
-                    c.CollisionDirection = new float3(0.0f, 0.0f, limits.z2);
+                    c.CollisionDirection = new float3(0.0f, 0.0f, 1.0f);
                 }
             }).ScheduleParallel(Dependency);
 

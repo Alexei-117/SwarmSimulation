@@ -114,14 +114,6 @@ namespace Swarm.Swarm
                 random = agentRandom
             });
 
-            entityManager.AddComponentData<HorizontalLimits>(entity, new HorizontalLimits
-            {
-                x1 = 0,
-                x2 = gridWidth,
-                z1 = 0,
-                z2 = gridHeight
-            });
-
             entityManager.AddComponentData<Gather>(entity, new Gather
             {
                 Value = gatheringSpeed
