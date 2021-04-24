@@ -61,10 +61,13 @@ namespace Swarm.Swarm
             Random random = new Random();
             random.InitState((uint)UnityEngine.Random.Range(1, 100000));
 
-            for (int cont = 0; cont < numberOfAgents; cont++)
+            /*for (int cont = 0; cont < numberOfAgents; cont++)
             {
                 CreateAgent(random.NextFloat(initialPoint.x, endPoint.x), random.NextFloat(initialPoint.y, endPoint.y), random.NextUInt(), cont);
-            }
+            }*/
+
+            CreateAgent(1, 1, random.NextUInt(), 0);
+            CreateAgent(1, 8.9f, random.NextUInt(), 1);
         }
 
         private Entity CreateAgent(float x, float z, uint seed, int index)
