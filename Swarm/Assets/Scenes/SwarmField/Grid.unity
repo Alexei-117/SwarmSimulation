@@ -214,7 +214,7 @@ MonoBehaviour:
   gatheringSpeed: 50
   agentSpeed: 0.25
   colliderSize: 0.75
-  communicationDistance: 3.5
+  communicationDistance: 1.75
   transferRate: 0.5
   consumptionRate: 0.01
   agentWithPhysics: {fileID: 1209638406}
@@ -411,9 +411,9 @@ MonoBehaviour:
     y: 0
     z: 0
   m_PrimitiveSize:
-    x: 8
-    y: 8
-    z: 8
+    x: 3.5
+    y: 3.5
+    z: 3.5
   m_PrimitiveOrientation:
     Value:
       x: 0
@@ -421,15 +421,15 @@ MonoBehaviour:
       z: 0
     RotationOrder: 4
   m_Capsule:
-    Height: 8
-    Radius: 4
+    Height: 3.5
+    Radius: 1.75
     Axis: 2
   m_Cylinder:
-    Height: 8
-    Radius: 4
+    Height: 3.5
+    Radius: 1.75
     Axis: 2
   m_CylinderSideCount: 20
-  m_SphereRadius: 4
+  m_SphereRadius: 1.75
   m_MinimumSkinnedVertexWeight: 0.1
   m_ConvexHullGenerationParameters:
     m_SimplificationTolerance: 0.015

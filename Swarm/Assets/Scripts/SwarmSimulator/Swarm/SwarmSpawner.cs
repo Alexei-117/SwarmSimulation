@@ -61,13 +61,10 @@ namespace Swarm.Swarm
             Random random = new Random();
             random.InitState((uint)UnityEngine.Random.Range(1, 100000));
 
-            /*for (int cont = 0; cont < numberOfAgents; cont++)
+            for (int cont = 0; cont < numberOfAgents; cont++)
             {
                 CreateAgent(random.NextFloat(initialPoint.x, endPoint.x), random.NextFloat(initialPoint.y, endPoint.y), random.NextUInt(), cont);
-            }*/
-
-            CreateAgent(1, 1, random.NextUInt(), 0);
-            CreateAgent(1, 8.9f, random.NextUInt(), 1);
+            }
         }
 
         private Entity CreateAgent(float x, float z, uint seed, int index)
@@ -92,14 +89,6 @@ namespace Swarm.Swarm
             entityManager.AddComponentData<AgentTag>(entity, new AgentTag());
             entityManager.AddComponentData<MoveForward>(entity, new MoveForward());
             entityManager.AddComponentData<RenderBounds>(entity, new RenderBounds());
-
-            /// TODO: Remove for final release. For debug purposes only.
-            entityManager.AddComponentData<PhysicsDebugDisplayData >(entity, new PhysicsDebugDisplayData {
-                DrawBroadphase = 0,
-                DrawColliders = 1,
-                DrawColliderAabbs = 1,
-                DrawColliderEdges = 1
-            });
 
             entityManager.AddComponentData<PreviousTranslation>(entity, new PreviousTranslation
             {
@@ -173,7 +162,7 @@ namespace Swarm.Swarm
             });
 
             Entity entity = entityManager.CreateEntity(entityManager.CreateArchetype(components));
-
+            
             entityManager.SetComponentData<CommunicationAreaTag>(entity, new CommunicationAreaTag
             {
                 AgentIndex = index
@@ -190,6 +179,15 @@ namespace Swarm.Swarm
                 material = communicationAreaMaterial
             });
 
+
+            /// Communication distance is defined as the distance till you reach another agent.
+            /// A few assumptios are made:
+            /// 1. All agents have their Communication device on.
+            /// 2. Communication reach is circular.
+            /// From 1 and 2 we can infere that the trigger system works in a straight line from robot to robot,
+            /// this means that to replicate the results in Heiko's work, we need to take into account also the
+            /// size of the robots. We will assume that the communication device is located at the center of the
+            /// agents, so if the distance is 3.5m between robots, then the communication area is 1.75m effectively.
             entityManager.AddComponentData<Scale>(entity, new Scale
             {
                 Value = communicationDistance
@@ -206,7 +204,6 @@ namespace Swarm.Swarm
             });
 
             Entity entity = entityManager.CreateEntity(entityManager.CreateArchetype(components));
-
 
             entityManager.SetComponentData<CollisionAreaTag>(entity, new CollisionAreaTag
             {
