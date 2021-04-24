@@ -19,7 +19,6 @@ namespace Swarm
         private GenericInformation genericInformation;
         private EntityManager entityManager;
 
-        private SwarmSimulatorSystemGroup systemGroup;
         private float accumulatedTime = 0;
 
         /*Spawners*/
@@ -35,7 +34,6 @@ namespace Swarm
             // Create generic information
             genericInformation = GetComponent<GenericInformation>();
             entityManager = World.DefaultGameObjectInjectionWorld.EntityManager;
-            systemGroup = World.DefaultGameObjectInjectionWorld.GetOrCreateSystem<SwarmSimulatorSystemGroup>();
 
             // Initialize spawners
             GetSpawners();
@@ -66,7 +64,7 @@ namespace Swarm
 
         private void InitializeSwarm()
         {
-            swarmSpawner.SetLayoutLimits(genericInformation.GetLayoutWidth(), genericInformation.GetLayoutHeight());
+            swarmSpawner.SetLayoutLimits(genericInformation.LayoutWidth, genericInformation.LayoutHeight);
             swarmSpawner.SetEntityManager(entityManager);
             swarmSpawner.SetNumberOfAgents(genericInformation.NumberOfAgents);
             swarmSpawner.Initialize();
@@ -74,7 +72,7 @@ namespace Swarm
 
         private void InitializeGrid()
         {
-            gridSpawner.SetLayoutLimits(genericInformation.GetLayoutWidth(), genericInformation.GetLayoutHeight());
+            gridSpawner.SetLayoutLimits(genericInformation.LayoutWidth, genericInformation.LayoutHeight);
             gridSpawner.SetEntityManager(entityManager);
             gridSpawner.SetGenericInformation(genericInformation);
             gridSpawner.Initialize();

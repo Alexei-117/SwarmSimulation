@@ -21,8 +21,6 @@ namespace Swarm
         [Header("Layout data")]
         [SerializeField] public float LayoutWidth = 80.0f;
         [SerializeField] public float LayoutHeight = 40.0f;
-        public float GridTileWidth;
-        public float GridTileHeight;
 
         public static ComponentType[] GetGenericComponents()
         {
@@ -60,16 +58,6 @@ namespace Swarm
             return returnComponents;
         }
 
-        public float GetLayoutWidth()
-        {
-            return LayoutWidth;
-        }
-
-        public float GetLayoutHeight()
-        {
-            return LayoutHeight;
-        }
-
         public void SetEntityManager(EntityManager entityManager)
         {
             this.entityManager = entityManager;
@@ -82,11 +70,6 @@ namespace Swarm
 
             isDataSet = true;
 
-            agentsTranslations = entityManager.CreateEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>(), ComponentType.ReadOnly<PotentialFieldAgent>())
-                .ToComponentDataArray<Translation>(Allocator.Persistent);
-            agentsPotentials = entityManager.CreateEntityQuery(ComponentType.ReadOnly<AgentTag>(), ComponentType.ReadOnly<Translation>(), ComponentType.ReadOnly<PotentialFieldAgent>())
-                .ToComponentDataArray<PotentialFieldAgent>(Allocator.Persistent);
-
             lightTranslations = entityManager.CreateEntityQuery(ComponentType.ReadOnly<Light>(), ComponentType.ReadOnly<Translation>())
                 .ToComponentDataArray<Translation>(Allocator.Persistent);
             lights = entityManager.CreateEntityQuery(ComponentType.ReadOnly<Light>(), ComponentType.ReadOnly<Translation>())
@@ -95,9 +78,6 @@ namespace Swarm
 
         public void OnDisable()
         {
-            agentsTranslations.Dispose();
-            agentsPotentials.Dispose();
-
             lightTranslations.Dispose();
             lights.Dispose();
         }
@@ -107,26 +87,6 @@ namespace Swarm
 
         /*Data*/
         private bool isDataSet;
-
-        private NativeArray<Translation> agentsTranslations;
-        public NativeArray<Translation> GetAgentsTranslations
-        {
-            get
-            {
-                SetData();
-                return agentsTranslations;
-            }
-        }
-
-        private NativeArray<PotentialFieldAgent> agentsPotentials;
-        public NativeArray<PotentialFieldAgent> GetAgentsPotentials
-        {
-            get
-            {
-                SetData();
-                return agentsPotentials;
-            }
-        }
 
         private NativeArray<Translation> lightTranslations;
         public NativeArray<Translation> GetLightTranslations

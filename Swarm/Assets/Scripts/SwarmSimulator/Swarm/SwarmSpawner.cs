@@ -21,12 +21,12 @@ namespace Swarm.Swarm
 
 
         [Header("Agent data")]
-        [SerializeField] private float gatheringSpeed = 50.0f;
-        [SerializeField] private float agentSpeed = 0.25f;
-        [SerializeField] private float colliderSize = 1.75f;
-        [SerializeField] private float communicationDistance = 4.5f;
-        [SerializeField] private float transferRate = 0.5f;
-        [SerializeField] private float consumptionRate = 0.01f;
+        [SerializeField] private float gatheringSpeed;
+        [SerializeField] private float agentSpeed;
+        [SerializeField] private float colliderSize;
+        [SerializeField] private float communicationDistance;
+        [SerializeField] private float transferRate;
+        [SerializeField] private float consumptionRate;
         [SerializeField] private GameObject agentWithPhysics;
 
         [Header("Rendering")]
@@ -59,12 +59,15 @@ namespace Swarm.Swarm
                 GameObjectConversionSettings.FromWorld(entityManager.World, asset ));
 
             Random random = new Random();
-            random.InitState((uint)((int)Time.time * 100000.0f + 1));
+            random.InitState((uint)UnityEngine.Random.Range(1, 100000));
 
-            for (int cont = 0; cont < numberOfAgents; cont++)
+            /*for (int cont = 0; cont < numberOfAgents; cont++)
             {
                 CreateAgent(random.NextFloat(initialPoint.x, endPoint.x), random.NextFloat(initialPoint.y, endPoint.y), random.NextUInt(), cont);
-            }
+            }*/
+
+            CreateAgent(1, 1, random.NextUInt(), 0);
+            CreateAgent(1, 8.9f, random.NextUInt(), 1);
         }
 
         private Entity CreateAgent(float x, float z, uint seed, int index)
