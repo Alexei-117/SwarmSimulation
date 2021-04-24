@@ -218,7 +218,7 @@ MonoBehaviour:
   transferRate: 0.5
   consumptionRate: 0.01
   agentWithPhysics: {fileID: 1209638406}
-  agentMesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  agentMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   agentMaterial: {fileID: 2100000, guid: 47f04029d9e65fd42a14c351f30d57f4, type: 2}
   communcationAreaMesh: {fileID: -2124705421725058983, guid: 97dfa84055edc954782e6a117a5f3311,
     type: 3}
