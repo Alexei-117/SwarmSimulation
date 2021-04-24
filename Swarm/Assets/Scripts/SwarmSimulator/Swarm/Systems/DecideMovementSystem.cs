@@ -16,7 +16,8 @@ namespace Swarm.Swarm
 
         protected override void OnUpdate()
         {
-            Dependency = Entities.ForEach((ref MoveForward moveForward, ref RandomData brownianMotion, ref HighestPotentialAgent highestPotentialAgent) =>
+            float aggregationThreshold = GenericInformation.agreggationThreshhold;
+            Dependency = Entities.ForEach((ref MoveForward moveForward, ref RandomData brownianMotion, in HighestPotentialAgent highestPotentialAgent, in PotentialFieldAgent potentialFieldAgent) =>
             {
                 if (highestPotentialAgent.Potential == 0)
                 {
@@ -26,8 +27,18 @@ namespace Swarm.Swarm
                 }
                 else
                 {
-                    moveForward.Direction = highestPotentialAgent.Direction;
+                    float probabilityGoingForHighest = Mathf.Max( Mathf.Min( (potentialFieldAgent.Value - aggregationThreshold ) * 0.001f, 0.75f) , 0.0f);
+                    if (probabilityGoingForHighest >= brownianMotion.random.NextFloat(0.0f, 1.0f))
+                    {
+                        moveForward.Direction = highestPotentialAgent.Direction;
+                    } else {
+                        float2 direction = brownianMotion.random.NextFloat2Direction();
+
+                        moveForward.Direction = new float3(direction.x, 0, direction.y);
+                    }
                 }
+
+                
             }).ScheduleParallel(Dependency);
 
             Dependency.Complete();

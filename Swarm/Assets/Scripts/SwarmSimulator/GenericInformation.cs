@@ -15,6 +15,7 @@ namespace Swarm
         [SerializeField] public float TimeStep = 1.0f;
 
         [Header("Agents data")]
+        [SerializeField] public float agreggationThreshhold = 0.0f;
         [SerializeField] public float AgentSize = 1.0f;
         [SerializeField] public int NumberOfAgents = 375;
 

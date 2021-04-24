@@ -643,7 +643,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b99545be85b4a4889a91e1a5ec24de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeStep: 1
+  TimeStep: 0.25
+  agreggationThreshhold: 0
   AgentSize: 1
   NumberOfAgents: 375
   LayoutWidth: 80
