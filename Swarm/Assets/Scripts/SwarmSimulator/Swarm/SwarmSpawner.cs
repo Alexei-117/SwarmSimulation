@@ -90,6 +90,14 @@ namespace Swarm.Swarm
             entityManager.AddComponentData<MoveForward>(entity, new MoveForward());
             entityManager.AddComponentData<RenderBounds>(entity, new RenderBounds());
 
+            /// TODO: Remove for final release. For debug purposes only.
+            entityManager.AddComponentData<PhysicsDebugDisplayData >(entity, new PhysicsDebugDisplayData {
+                DrawBroadphase = 0,
+                DrawColliders = 1,
+                DrawColliderAabbs = 1,
+                DrawColliderEdges = 1
+            });
+
             entityManager.AddComponentData<PreviousTranslation>(entity, new PreviousTranslation
             {
                 Value = new float3(x, 0f, z)

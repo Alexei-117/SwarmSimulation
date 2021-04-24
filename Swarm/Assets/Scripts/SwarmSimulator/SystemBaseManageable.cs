@@ -15,7 +15,7 @@ namespace Swarm
 
         public virtual void InitializeData()
         {
-
+            
         }
 
         protected override void OnCreate()
