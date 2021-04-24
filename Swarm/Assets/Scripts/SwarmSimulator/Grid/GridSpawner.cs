@@ -37,7 +37,7 @@ namespace Swarm.Grid
         {
             SetupGridDotArchetype();
             CreateGridGameObject();
-            CreatePotentialModelGrid();
+            //CreatePotentialModelGrid();
         }
 
         private GameObject CreateGridGameObject()
@@ -102,72 +102,6 @@ namespace Swarm.Grid
             mesh.MarkDynamic(); // Optimyze for constant updates
 
             return grid;
-        }
-
-
-        private void CreatePotentialModelGrid()
-        {
-            GameObject grid = new GameObject("PotentialModelGrid");
-            grid.tag = "PotentialModelGrid";
-
-            MeshFilter meshFilter = grid.AddComponent<MeshFilter>();
-            MeshRenderer meshRenderer = grid.AddComponent<MeshRenderer>();
-            meshRenderer.material = dotMaterial;
-
-            List<Vector3> vertices = new List<Vector3>();
-            List<Vector2> uvs = new List<Vector2>();
-            List<int> triangles = new List<int>();
-
-            float uvFactorX = 1.0f / columns;
-            float uvFactorZ = 1.0f / rows;
-
-            for (int z = 0; z < verticalVertices; z++)
-            {
-                for (int x = 0; x < horizontalVertices; x++)
-                {
-                    float xPos = x * gridTileWidth;
-                    float zPos = z * gridTileHeight;
-                    vertices.Add(new Vector3(xPos, gridInitialHeight, zPos));
-                    uvs.Add(new Vector2(x * uvFactorX, z * uvFactorZ));
-                }
-            }
-
-            for (int z = 0; z < rows; z++)
-            {
-                for (int x = 0; x < columns; x++)
-                {
-                    triangles.Add(z * horizontalVertices + x);
-                    triangles.Add((z + 1) * horizontalVertices + x);
-                    triangles.Add(z * horizontalVertices + x + 1);
-
-                    triangles.Add((z + 1) * horizontalVertices + x);
-                    triangles.Add((z + 1) * horizontalVertices + x + 1);
-                    triangles.Add(z * horizontalVertices + x + 1);
-                }
-            }
-
-            potentialModelGridMesh = new Mesh
-            {
-                vertices = vertices.ToArray(),
-                uv = uvs.ToArray(),
-                triangles = triangles.ToArray()
-            };
-
-            meshFilter.mesh = potentialModelGridMesh;
-            potentialModelGridMesh.RecalculateNormals();
-            potentialModelGridMesh.RecalculateBounds();
-            potentialModelGridMesh.MarkDynamic(); // Optimyze for constant updates
-
-            potentialModelGridCreated = true;
-        }
-
-        void Update()
-        {
-            if (potentialModelGridCreated)
-            {
-                Vector3[] vertices = potentialModelGridMesh.vertices;
-
-            }
         }
 
         private Entity MakeGridDot(int index, float x, float z)
