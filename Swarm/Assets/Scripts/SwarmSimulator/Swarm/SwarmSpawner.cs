@@ -234,6 +234,7 @@ namespace Swarm.Swarm
             numberOfAgents = num;
         }
 
+        /// Disposes of asset on application end
         private void OnDisable()
         {
             asset.Dispose();
