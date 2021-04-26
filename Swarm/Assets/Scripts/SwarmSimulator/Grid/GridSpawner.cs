@@ -29,10 +29,6 @@ namespace Swarm.Grid
         private float gridWidth;
         private float gridHeight;
 
-        /* Potential Model Grid */
-        private Mesh potentialModelGridMesh = null;
-        private bool potentialModelGridCreated = false;
-
         public void Initialize()
         {
             SetupGridDotArchetype();
