@@ -83,5 +83,11 @@ public class CameraControl : MonoBehaviour
             if (Input.mouseScrollDelta.y < 0)
                 cameraTransform.localPosition -= Vector3.forward * zoomSpeed * Time.deltaTime;
         }
+
+        /// Q or Escape To quit
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
