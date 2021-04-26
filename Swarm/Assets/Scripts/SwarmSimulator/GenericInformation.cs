@@ -20,6 +20,7 @@ namespace Swarm
         [SerializeField] public int NumberOfAgents = 375;
 
         [Header("Layout data")]
+        [SerializeField] public float GridInitialHeight = 10.0f;
         [SerializeField] public float LayoutWidth = 80.0f;
         [SerializeField] public float LayoutHeight = 40.0f;
 

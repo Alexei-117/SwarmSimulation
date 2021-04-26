@@ -37,8 +37,6 @@ namespace Swarm.Grid
         {
             SetupGridDotArchetype();
             CreateGridGameObject();
-            CreateInvertedGrid();
-            //CreatePotentialModelGrid();
         }
 
         private GameObject CreateGridGameObject()
@@ -106,74 +104,6 @@ namespace Swarm.Grid
             return grid;
         }
 
-        private GameObject CreateInvertedGrid()
-        {
-            GameObject grid = new GameObject("GridPlaneInverted");
-            grid.tag = "GridPlane";
-
-            MeshFilter meshFilter = grid.AddComponent<MeshFilter>();
-            MeshRenderer meshRenderer = grid.AddComponent<MeshRenderer>();
-            meshRenderer.material = dotMaterial;
-
-            List<Vector3> vertices = new List<Vector3>();
-            List<Vector3> normals = new List<Vector3>();
-            List<Vector2> uvs = new List<Vector2>();
-            List<int> triangles = new List<int>();
-
-            horizontalVertices = columns + 1;
-            verticalVertices = rows + 1;
-
-            float uvFactorX = 1.0f / columns;
-            float uvFactorZ = 1.0f / rows;
-            gridTileWidth = gridWidth / columns;
-            gridTileHeight = gridHeight / rows;
-
-            int vertexIndex = 0;
-            for(int z = 0; z < verticalVertices; z++)
-            {
-                for(int x = 0; x < horizontalVertices; x++)
-                {
-                    float xPos = x * gridTileWidth;
-                    float zPos = z * gridTileHeight;
-                    vertices.Add(new Vector3(xPos, gridInitialHeight, zPos));
-                    normals.Add(new Vector3(0.0f, -1.0f, 0.0f));
-                    uvs.Add(new Vector2(x * uvFactorX, z * uvFactorZ));
-
-                    MakeGridDot(vertexIndex++, xPos, zPos);
-                }
-            }
-
-            for (int z = rows - 1; z >= 0; z--)
-            {
-                for (int x = columns - 1; x >= 0; x--)
-                {
-                    triangles.Add((z + 1) * horizontalVertices + x);
-                    triangles.Add(z * horizontalVertices + x + 1);
-                    triangles.Add((z + 1) * horizontalVertices + x + 1);
-
-                    triangles.Add(z * horizontalVertices + x);
-                    triangles.Add(z * horizontalVertices + x + 1);
-                    triangles.Add((z + 1) * horizontalVertices + x);
-                }
-            }
-
-            Mesh mesh = new Mesh
-            {
-                vertices = vertices.ToArray(),
-                uv = uvs.ToArray(),
-                triangles = triangles.ToArray(),
-                normals = normals.ToArray(),
-            };
-
-            meshFilter.mesh = mesh;
-            //mesh.RecalculateTangents();
-            //mesh.RecalculateNormals();
-            mesh.RecalculateBounds();
-            mesh.MarkDynamic(); // Optimyze for constant updates
-
-            return grid;
-        }
-
         private Entity MakeGridDot(int index, float x, float z)
         {
             Entity entity = entityManager.CreateEntity(gridDotArchetype);
@@ -186,16 +116,6 @@ namespace Swarm.Grid
             entityManager.AddComponentData<Translation>(entity, new Translation
             {
                 Value = new float3(x, gridInitialHeight, z)
-            });
-
-            entityManager.AddComponentData<PlotMetadata>(entity, new PlotMetadata
-            {
-                InitialHeight = gridInitialHeight,
-                dotBoundaries = new float4(
-                    x - (gridWidth / columns) * 0.5f, 
-                    x + (gridWidth / columns) * 0.5f, 
-                    z - (gridHeight / rows) * 0.5f, 
-                    z + (gridHeight / rows) * 0.5f)
             });
 
             entityManager.AddComponentData<Speed>(entity, new Speed
