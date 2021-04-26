@@ -44,7 +44,7 @@ namespace Swarm.Scenario
             // Create light gameobject
             GameObject lightGameObject = new GameObject("Light" + lightIndex);
             Transform lightTransform = lightGameObject.GetComponent<Transform>();
-            lightTransform.position = new Vector3(position.x, lightRadius, position.y);
+            lightTransform.position = new Vector3(position.x, lightRadius * 2, position.y);
 
             //Lights that point downwards
             lightTransform.rotation = Quaternion.LookRotation(new Vector3(0.0f, -1.0f, 0.0f), new Vector3(1.0f, 0.0f, 0.0f));
@@ -52,10 +52,9 @@ namespace Swarm.Scenario
             UnityEngine.Light light = lightGameObject.AddComponent<UnityEngine.Light>();
             light.type = LightType.Spot;
             light.color = color;
-            light.areaSize = new Vector2(lightRadius, lightRadius);
             light.intensity = 30;
-            light.spotAngle = 90;
-            light.range = 30;
+            light.spotAngle = 60;
+            light.range = 120;
         }
 
         private Entity CreateLight(float2 position, float lightRadius)

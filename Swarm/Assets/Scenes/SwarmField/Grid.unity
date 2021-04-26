@@ -647,6 +647,7 @@ MonoBehaviour:
   agreggationThreshhold: 0
   AgentSize: 1
   NumberOfAgents: 375
+  GridInitialHeight: 10
   LayoutWidth: 80
   LayoutHeight: 40
 --- !u!114 &1449347359

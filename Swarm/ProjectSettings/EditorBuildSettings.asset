@@ -4,7 +4,13 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SwarmField.unity
+    guid: b1bf05e1d301b144e8b60617e3eea70a
+  - enabled: 1
+    path: Assets/Scenes/SwarmField/Grid.unity
+    guid: 977b03d002c745e4b9bae1183afd5470
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 8e46e833cd2894f468744eed68e3758d,
       type: 2}
