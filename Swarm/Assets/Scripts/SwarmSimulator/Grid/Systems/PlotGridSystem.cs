@@ -13,11 +13,15 @@ namespace Swarm.Grid
     public class PlotGridSystem : SystemBaseManageable
     {
         private Mesh gridMesh;
+        private Mesh gridMeshInverted;
         private NativeArray<Vector3> meshVertices;
+        private NativeArray<Color> meshColors;
+        private NativeArray<Vector3> meshVerticesInverted;
 
         public override void InitializeData()
         {
-            gridMesh = GameObject.FindGameObjectWithTag("GridPlane").GetComponent<MeshFilter>().mesh;
+            gridMesh = GameObject.Find("GridPlane").GetComponent<MeshFilter>().mesh;
+            gridMeshInverted = GameObject.Find("GridPlaneInverted").GetComponent<MeshFilter>().mesh;
         }
 
         protected override void OnCreate()
@@ -38,13 +42,30 @@ namespace Swarm.Grid
             Dependency.Complete();
 
             meshVertices = new NativeArray<Vector3>(gridMesh.vertexCount, Allocator.TempJob);
+            meshVerticesInverted = new NativeArray<Vector3>(gridMeshInverted.vertexCount, Allocator.TempJob);
+            meshColors = new NativeArray<Color>(gridMesh.vertexCount, Allocator.TempJob);
             Entities.WithoutBurst().ForEach((in GridDotTag gridDot, in Translation t) =>
             {
                 meshVertices[gridDot.Index] = t.Value;
+                meshVerticesInverted[gridDot.Index] = new float3(t.Value.x, t.Value.y - 0.001f, t.Value.z);
+                
+                /// Paint dot to reflect number of agents. From Green (0 agents) --> To Red (16 agents), in HSV for easier computation
+                meshColors[gridDot.Index] = Color.HSVToRGB( ((t.Value.y - 10.0f )/ 16.0f) / 10.0f + 0.2f, 0.5f, 0.5f);
             }).Run();
 
             gridMesh.vertices = meshVertices.ToArray();
+            gridMesh.colors = meshColors.ToArray();
+            gridMesh.RecalculateNormals();
+            gridMesh.RecalculateBounds();
+
+            gridMeshInverted.vertices = meshVerticesInverted.ToArray();
+            gridMeshInverted.colors = meshColors.ToArray();
+            gridMeshInverted.RecalculateNormals();
+            gridMeshInverted.RecalculateBounds();
+
             meshVertices.Dispose();
+            meshVerticesInverted.Dispose();
+            meshColors.Dispose();
         }
 
         protected override void OnDestroy()
