@@ -32,9 +32,7 @@ namespace Swarm.Grid
             float gridInitialHeight = GenericInformation.GridInitialHeight;
             Dependency = Entities.WithAll<GridDotTag>().ForEach((ref MoveForward moveForward, in Translation t, in AccumulatedAgents agents) =>
             {
-                float yMovement = agents.Value + gridInitialHeight < t.Value.y ? -1 : 1;
-                yMovement = math.abs(agents.Value + gridInitialHeight - t.Value.y) < 0.05 ? 0 : yMovement;
-                moveForward.Direction = new float3(0, yMovement, 0);
+                moveForward.Direction = new float3(0.0f, ((float) agents.Value) + gridInitialHeight - t.Value.y, 0.0f);
             }).ScheduleParallel(Dependency);
 
             Dependency.Complete();
