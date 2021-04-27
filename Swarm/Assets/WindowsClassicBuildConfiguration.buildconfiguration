@@ -4,7 +4,7 @@
         {
             "$type": "Unity.Build.Common.GeneralSettings, Unity.Build",
             "ProductName": "Swarm Simulation",
-            "CompanyName": "University of Alicante",
+            "CompanyName": "Alexei Jilinskiy",
             "Version": "1.0.0"
         },
         {
@@ -19,10 +19,10 @@
             ]
         },
         {
-            "$type": "Unity.Build.Classic.ClassicScriptingSettings, Unity.Build.Classic",
-            "ScriptingBackend": 0,
-            "Il2CppCompilerConfiguration": 1,
-            "UseIncrementalGC": false
+            "$type": "Unity.Build.Classic.ClassicBuildProfile, Unity.Build.Classic",
+            "$version": 1,
+            "Platform": "win",
+            "Configuration": 1
         }
     ]
 }
