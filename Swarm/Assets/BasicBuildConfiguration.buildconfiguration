@@ -19,10 +19,10 @@
             ]
         },
         {
-            "$type": "Unity.Build.Classic.ClassicBuildProfile, Unity.Build.Classic",
-            "$version": 1,
-            "Platform": "win",
-            "Configuration": 1
+            "$type": "Unity.Build.Classic.ClassicScriptingSettings, Unity.Build.Classic",
+            "ScriptingBackend": 0,
+            "Il2CppCompilerConfiguration": 1,
+            "UseIncrementalGC": false
         }
     ]
 }
