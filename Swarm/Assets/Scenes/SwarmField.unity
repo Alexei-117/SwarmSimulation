@@ -627,11 +627,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPoint:
-    x: 0
-    y: 0
+    x: 0.5
+    y: 0.5
   endPoint:
-    x: 80
-    y: 40
+    x: 79.5
+    y: 39.5
   gatheringSpeed: 50
   agentSpeed: 0.25
   colliderSize: 0.75

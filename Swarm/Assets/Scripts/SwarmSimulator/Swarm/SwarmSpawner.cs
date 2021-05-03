@@ -69,8 +69,6 @@ namespace Swarm.Swarm
 
         private Entity CreateAgent(float x, float z, uint seed, int index)
         {
-            BlobAssetReference<Collider> sourceCollider = entityManager.GetComponentData<PhysicsCollider>(entityWithPhysics).Value;
-
             Entity entity = entityManager.Instantiate(entityWithPhysics);
 
             entityManager.SetComponentData<Translation>(entity, new Translation
@@ -80,11 +78,6 @@ namespace Swarm.Swarm
 
             CreateCommunicationArea(x, z, index);
             CreateCollisionArea(x, z, index);
-
-            entityManager.SetComponentData<PhysicsCollider>(entity, new PhysicsCollider
-            {
-                Value = sourceCollider
-            });
 
             entityManager.AddComponentData<AgentTag>(entity, new AgentTag());
             entityManager.AddComponentData<MoveForward>(entity, new MoveForward());
