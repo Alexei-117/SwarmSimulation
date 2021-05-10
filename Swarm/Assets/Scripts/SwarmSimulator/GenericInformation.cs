@@ -29,7 +29,6 @@ namespace Swarm
             return new ComponentType[]
             {
                 typeof(Translation),
-                typeof(PreviousTranslation),
                 typeof(Rotation),
                 typeof(LocalToWorld),
                 typeof(RenderMesh),

@@ -11,8 +11,6 @@ namespace Swarm
         public GenericInformation GenericInformation { get; set; }
         public string Name { get; set; }
 
-        public bool WillRunPerTimeStep { get; set; }
-
         public virtual void InitializeData()
         {
             

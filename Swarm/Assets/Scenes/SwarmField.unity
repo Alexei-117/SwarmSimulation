@@ -681,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &965933113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,8 +1308,8 @@ MonoBehaviour:
   - AgentCollision
   - BoundaryCollision
   - RestoreCollidedPosition
-  - AccumulateAgents
-  - PlotGrid
+  - AccumulateAgents-
+  - PlotGrid-
   - AgentAreas
   PerFrameSystems:
   - Gather
@@ -1365,4 +1365,4 @@ MonoBehaviour:
   rows: 10
   gridInitialHeight: 10
   speed: 5
-  dotMaterial: {fileID: 2100000, guid: 57b6f7368fee494449b0b87ab9d1edb2, type: 2}
+  dotMaterial: {fileID: 0}

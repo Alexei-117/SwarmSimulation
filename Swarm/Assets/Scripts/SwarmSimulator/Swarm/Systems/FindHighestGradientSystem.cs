@@ -30,7 +30,7 @@ namespace Swarm.Swarm
         {
             // Optimizing with ReadOnly
             [ReadOnly] public ComponentDataFromEntity<Translation> translationGroup;
-            [ReadOnly] public ComponentDataFromEntity<PotentialFieldAgent> potentialGroup;
+            [ReadOnly] public ComponentDataFromEntity<PotentialValue> potentialGroup;
             public ComponentDataFromEntity<HighestPotentialAgent> highestPotentialtGroup;
 
             public void Execute(TriggerEvent triggerEvent)
@@ -50,8 +50,8 @@ namespace Swarm.Swarm
                 HighestPotentialAgent highestPotentialAgentA = highestPotentialtGroup[entityA];
                 HighestPotentialAgent highestPotentialAgentB = highestPotentialtGroup[entityB];
 
-                PotentialFieldAgent potentialA = potentialGroup[entityA];
-                PotentialFieldAgent potentialB = potentialGroup[entityB];
+                PotentialValue potentialA = potentialGroup[entityA];
+                PotentialValue potentialB = potentialGroup[entityB];
 
                 if (potentialB.Value > highestPotentialAgentA.Potential)
                 {
@@ -76,7 +76,7 @@ namespace Swarm.Swarm
             var gradientJob = new GradientJob()
             {
                 translationGroup = GetComponentDataFromEntity<Translation>(true),
-                potentialGroup = GetComponentDataFromEntity<PotentialFieldAgent>(true),
+                potentialGroup = GetComponentDataFromEntity<PotentialValue>(true),
                 highestPotentialtGroup = GetComponentDataFromEntity<HighestPotentialAgent>()
             };
 

@@ -135,8 +135,7 @@ namespace Swarm.Grid
                 typeof(GridDotTag),
                 typeof(Speed),
                 typeof(MoveForward),
-                typeof(AccumulatedAgents),
-                typeof(PlotMetadata)
+                typeof(AccumulatedAgents)
             });
 
             gridDotArchetype = entityManager.CreateArchetype(components);

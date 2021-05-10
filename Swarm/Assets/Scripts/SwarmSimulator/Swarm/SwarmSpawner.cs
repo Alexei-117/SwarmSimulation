@@ -76,27 +76,22 @@ namespace Swarm.Swarm
                 Value = new float3(x, 0f, z)
             });
 
-            CreateCommunicationArea(x, z, index);
-            CreateCollisionArea(x, z, index);
-
             entityManager.AddComponentData<AgentTag>(entity, new AgentTag());
-            entityManager.AddComponentData<MoveForward>(entity, new MoveForward());
             entityManager.AddComponentData<RenderBounds>(entity, new RenderBounds());
-
-            entityManager.AddComponentData<PreviousTranslation>(entity, new PreviousTranslation
-            {
-                Value = new float3(x, 0f, z)
-            });
-
-            entityManager.AddComponentData<Speed>(entity, new Speed
-            {
-                Value = agentSpeed
-            });
-
             entityManager.AddSharedComponentData<RenderMesh>(entity, new RenderMesh
             {
                 mesh = agentMesh,
                 material = agentMaterial      
+            });
+
+            CreateCommunicationArea(x, z, index);
+            CreateCollisionArea(x, z, index);
+
+            entityManager.AddComponentData<MoveForward>(entity, new MoveForward());
+
+            entityManager.AddComponentData<Speed>(entity, new Speed
+            {
+                Value = agentSpeed
             });
 
             Random agentRandom = new Random();
@@ -112,7 +107,7 @@ namespace Swarm.Swarm
                 Value = gatheringSpeed
             });
 
-            entityManager.AddComponentData<PotentialFieldAgent>(entity, new PotentialFieldAgent
+            entityManager.AddComponentData<PotentialValue>(entity, new PotentialValue
             {
                 Value = 0.0f,
                 TransferRate = transferRate
@@ -155,7 +150,7 @@ namespace Swarm.Swarm
 
             entityManager.SetComponentData<Translation>(entity, new Translation
             {
-                Value = new float3(x, 5.0f, z)
+                Value = new float3(x, 0.01f, z)
             });
 
             entityManager.SetSharedComponentData<RenderMesh>(entity, new RenderMesh
@@ -196,7 +191,7 @@ namespace Swarm.Swarm
 
             entityManager.SetComponentData<Translation>(entity, new Translation
             {
-                Value = new float3(x, 2.0f, z)
+                Value = new float3(x, 0.02f, z)
             });
 
             entityManager.SetSharedComponentData<RenderMesh>(entity, new RenderMesh

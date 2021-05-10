@@ -15,7 +15,7 @@ namespace Swarm
         [SerializeField] private List<string> PerFrameSystems;
 
         /*Generic*/
-        private static List<SystemBase> systems = new List<SystemBase>();
+        private static List<SystemBaseManageable> systems = new List<SystemBaseManageable>();
         private GenericInformation genericInformation;
         private EntityManager entityManager;
 

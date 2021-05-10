@@ -17,7 +17,7 @@ namespace Swarm.Movement
 
         protected override void OnUpdate()
         {
-            Dependency = Entities.WithAll<AgentTag>().ForEach((ref Translation t, ref Collision c, in PreviousTranslation pt) =>
+            Dependency = Entities.WithAll<AgentTag>().ForEach((ref Translation t, ref Collision c) =>
             {
                 if (c.Collided)
                 {

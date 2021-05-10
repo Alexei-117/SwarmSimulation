@@ -2,7 +2,7 @@
 
 namespace Swarm.Swarm
 {
-    public struct PotentialFieldAgent : IComponentData
+    public struct PotentialValue : IComponentData
     {
         public float Value;
         public float TransferRate;

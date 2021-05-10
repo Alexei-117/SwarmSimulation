@@ -26,7 +26,7 @@ namespace Swarm.Swarm
         //[BurstCompile]
         struct TransferJob : ITriggerEventsJob
         {
-            public ComponentDataFromEntity<PotentialFieldAgent> potentialGroup;
+            public ComponentDataFromEntity<PotentialValue> potentialGroup;
 
             public void Execute(TriggerEvent triggerEvent)
             {
@@ -39,8 +39,8 @@ namespace Swarm.Swarm
                     return;
                 }
 
-                PotentialFieldAgent potentialA = potentialGroup[entityA];
-                PotentialFieldAgent potentialB = potentialGroup[entityB];
+                PotentialValue potentialA = potentialGroup[entityA];
+                PotentialValue potentialB = potentialGroup[entityB];
 
                 if (potentialA.Value < 0.00001f)
                     potentialA.Value = 0;
@@ -68,7 +68,7 @@ namespace Swarm.Swarm
         {
             var transferJob = new TransferJob()
             {
-                potentialGroup = GetComponentDataFromEntity<PotentialFieldAgent>()
+                potentialGroup = GetComponentDataFromEntity<PotentialValue>()
             };
 
             Dependency = transferJob.Schedule(stepPhysicsWorld.Simulation, ref buildPhysicsWorld.PhysicsWorld, Dependency);

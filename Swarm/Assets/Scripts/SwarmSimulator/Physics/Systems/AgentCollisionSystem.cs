@@ -28,7 +28,6 @@ namespace Swarm.Movement
         [BurstCompile]
         struct AgentCollisionJob : ITriggerEventsJob
         {
-            [ReadOnly] public float agentSize;
             [ReadOnly] public ComponentDataFromEntity<Translation> translationGroup;
             public ComponentDataFromEntity<Collision> collisionGroup;
 
@@ -66,11 +65,8 @@ namespace Swarm.Movement
 
         protected override void OnUpdate()
         {
-            float agentSize = GenericInformation.AgentSize;
-
             var agentCollisionJob = new AgentCollisionJob()
             {
-                agentSize = agentSize,
                 translationGroup = GetComponentDataFromEntity<Translation>(true),
                 collisionGroup = GetComponentDataFromEntity<Collision>()
             };

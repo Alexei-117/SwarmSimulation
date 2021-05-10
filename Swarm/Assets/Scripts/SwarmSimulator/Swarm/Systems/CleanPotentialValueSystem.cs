@@ -16,7 +16,7 @@ namespace Swarm.Swarm
 
         protected override void OnUpdate()
         {
-            Dependency = Entities.ForEach((ref MoveForward moveForward, ref HighestPotentialAgent highestPotentialAgent) =>
+            Dependency = Entities.WithAll<AgentTag>().ForEach((ref HighestPotentialAgent highestPotentialAgent) =>
             {
                 highestPotentialAgent.Potential = 0;
                 highestPotentialAgent.Direction = float3.zero;

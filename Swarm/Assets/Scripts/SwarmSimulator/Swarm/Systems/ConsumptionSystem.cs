@@ -13,7 +13,7 @@ namespace Swarm.Swarm
 
         protected override void OnUpdate()
         {
-            Dependency = Entities.ForEach((ref PotentialFieldAgent potential, in Consumption c) =>
+            Dependency = Entities.WithAll<AgentTag>().ForEach((ref PotentialValue potential, in Consumption c) =>
             {
                 potential.Value -= potential.Value * c.Value;
             }).ScheduleParallel(Dependency);

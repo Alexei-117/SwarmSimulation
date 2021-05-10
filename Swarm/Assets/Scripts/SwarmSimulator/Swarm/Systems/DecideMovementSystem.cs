@@ -17,7 +17,7 @@ namespace Swarm.Swarm
         protected override void OnUpdate()
         {
             float aggregationThreshold = GenericInformation.agreggationThreshhold;
-            Dependency = Entities.ForEach((ref MoveForward moveForward, ref RandomData brownianMotion, in HighestPotentialAgent highestPotentialAgent, in PotentialFieldAgent potentialFieldAgent) =>
+            Dependency = Entities.WithAll<AgentTag>().ForEach((ref MoveForward moveForward, ref RandomData brownianMotion, in HighestPotentialAgent highestPotentialAgent, in PotentialValue potentialFieldAgent) =>
             {
                 if (highestPotentialAgent.Potential == 0)
                 {
