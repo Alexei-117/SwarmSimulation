@@ -1365,4 +1365,4 @@ MonoBehaviour:
   rows: 10
   gridInitialHeight: 10
   speed: 5
-  dotMaterial: {fileID: 0}
+  dotMaterial: {fileID: 2100000, guid: 57b6f7368fee494449b0b87ab9d1edb2, type: 2}

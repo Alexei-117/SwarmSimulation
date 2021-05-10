@@ -37,24 +37,24 @@ namespace Swarm.Grid
 
             Dependency.Complete();
 
-            meshVertices = new NativeArray<Vector3>(gridMesh.vertexCount, Allocator.TempJob);
-            meshColors = new NativeArray<Color>(gridMesh.vertexCount, Allocator.TempJob);
+            meshVertices = new NativeArray<Vector3>(gridMesh.vertexCount, Allocator.Temp);
+            meshColors = new NativeArray<Color>(gridMesh.vertexCount, Allocator.Temp);
             Entities.WithoutBurst().ForEach((in GridDotTag gridDot, in Translation t) =>
             {
                 meshVertices[gridDot.Index] = t.Value;
-
+               
                 /// Paint dot to reflect number of agents. From Green (0 agents) --> To Red (9 agents), in HSV for easier computation
                 /// where green is 0.32f approximately and 0.0f is red
-                meshColors[gridDot.Index] = Color.HSVToRGB( Mathf.Max(1.0f - 0.68f - ((t.Value.y - 10.0f )/ 32.0f), 0.0f), 0.8f, 0.8f);
+                meshColors[gridDot.Index] = Color.HSVToRGB( Mathf.Max(1.0f - 0.68f - ((t.Value.y - 10.0f )/ 28.125f), 0.0f), 0.8f, 0.8f);
             }).Run();
 
             gridMesh.vertices = meshVertices.ToArray();
             gridMesh.colors = meshColors.ToArray();
-            gridMesh.RecalculateNormals();
-            gridMesh.RecalculateBounds();
-
             meshVertices.Dispose();
             meshColors.Dispose();
+
+            gridMesh.RecalculateNormals();
+            gridMesh.RecalculateBounds();
         }
 
         protected override void OnDestroy()
