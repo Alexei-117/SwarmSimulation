@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Swarm.Swarm
 {
-    [UpdateBefore(typeof(ConsumptionSystem))]
+    [UpdateBefore(typeof(UpdatePotentialSystem))]
     public class TransferSystem : SystemBaseManageable
     {
         private BuildPhysicsWorld buildPhysicsWorld;
@@ -26,6 +26,7 @@ namespace Swarm.Swarm
         //[BurstCompile]
         struct TransferJob : ITriggerEventsJob
         {
+            public float transferRate;
             public ComponentDataFromEntity<PotentialValue> potentialGroup;
 
             public void Execute(TriggerEvent triggerEvent)
@@ -50,11 +51,11 @@ namespace Swarm.Swarm
 
                 if (potentialA.Value > potentialB.Value)
                 {
-                    float difference = (potentialA.Value - potentialB.Value) * potentialA.TransferRate;
+                    float difference = (potentialA.Value - potentialB.Value) * transferRate;
                     potentialA.Value -= difference;
                     potentialB.Value += difference;
                 } else {
-                    float difference = (potentialB.Value - potentialA.Value) * potentialA.TransferRate;
+                    float difference = (potentialB.Value - potentialA.Value) * transferRate;
                     potentialB.Value -= difference;
                     potentialA.Value += difference;
                 }
@@ -68,6 +69,7 @@ namespace Swarm.Swarm
         {
             var transferJob = new TransferJob()
             {
+                transferRate = GenericInformation.TransferRate,
                 potentialGroup = GetComponentDataFromEntity<PotentialValue>()
             };
 
