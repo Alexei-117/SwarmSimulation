@@ -632,12 +632,9 @@ MonoBehaviour:
   endPoint:
     x: 79.5
     y: 39.5
-  gatheringSpeed: 50
   agentSpeed: 0.25
-  colliderSize: 0.75
+  colliderSize: 0.5
   communicationDistance: 1.75
-  transferRate: 0.5
-  consumptionRate: 0.01
   agentWithPhysics: {fileID: 1209638406}
   agentMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   agentMaterial: {fileID: 2100000, guid: 47f04029d9e65fd42a14c351f30d57f4, type: 2}
@@ -1280,8 +1277,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeStep: 0.2
   agreggationThreshhold: 0
+  Gather: 50
+  TransferRate: 0.5
+  ConsumptionRate: 0.01
   AgentSize: 1
-  NumberOfAgents: 375
+  NumberOfAgents: 416
   GridInitialHeight: 10
   LayoutWidth: 80
   LayoutHeight: 40
@@ -1297,10 +1297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef0999901de84944822934584625ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RemainingSimulationTimeInSeconds: 50
   RunningSystems:
   - Gather
   - Transfer
-  - Consumption
+  - UpdatePotential
   - FindHighestGradient
   - DecideMovement
   - MoveForward
@@ -1308,16 +1309,17 @@ MonoBehaviour:
   - AgentCollision
   - BoundaryCollision
   - RestoreCollidedPosition
-  - AccumulateAgents
-  - PlotGrid
+  - AccumulateAgents-
+  - PlotGrid-
   - AgentAreas
   PerFrameSystems:
   - Gather
   - Transfer
-  - Consumption
+  - UpdatePotential
   - FindHighestGradient
   - DecideMovement
   - CleanPotentialValue
+  - TransformAgent
 --- !u!1 &1943328597
 GameObject:
   m_ObjectHideFlags: 0
