@@ -5,6 +5,6 @@ namespace Swarm.Swarm
     public struct PotentialValue : IComponentData
     {
         public float Value;
-        public float TransferRate;
+        public float TransferValue;
     }
 }
