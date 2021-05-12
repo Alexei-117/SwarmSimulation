@@ -1486,7 +1486,6 @@ GameObject:
   - component: {fileID: 1836182853}
   - component: {fileID: 1836182856}
   - component: {fileID: 1836182855}
-  - component: {fileID: 1836182854}
   m_Layer: 5
   m_Name: LeftCounter
   m_TagString: Counter
@@ -1513,21 +1512,6 @@ RectTransform:
   m_AnchoredPosition: {x: -80, y: 10}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1836182854
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1836182852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d52101b1662fd342a17e7866987f540, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  refresh: 0
-  avgFramerate: 0
 --- !u!114 &1836182855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,7 +1565,6 @@ GameObject:
   - component: {fileID: 1858693768}
   - component: {fileID: 1858693771}
   - component: {fileID: 1858693770}
-  - component: {fileID: 1858693769}
   m_Layer: 5
   m_Name: RightCounter
   m_TagString: Counter
@@ -1608,21 +1591,6 @@ RectTransform:
   m_AnchoredPosition: {x: -30, y: 10}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1858693769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858693767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d52101b1662fd342a17e7866987f540, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timer: 0
-  refresh: 0
-  avgFramerate: 0
 --- !u!114 &1858693770
 MonoBehaviour:
   m_ObjectHideFlags: 0

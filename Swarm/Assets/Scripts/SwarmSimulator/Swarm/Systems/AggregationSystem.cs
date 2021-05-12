@@ -1,5 +1,8 @@
 using Swarm.Movement;
+using Unity.Collections;
 using Unity.Entities;
+using Unity.Mathematics;
+using Unity.Transforms;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,7 +27,7 @@ namespace Swarm.Swarm
 
         protected override void OnUpdate()
         {
-            /*NativeArray<float3> lightsPositions = GenericInformation.GetLightTranslations.Reinterpret<float3>();
+            NativeArray<float3> lightsPositions = GenericInformation.GetLightTranslations.Reinterpret<float3>();
             NativeArray<float> lightsSizes = GenericInformation.GetLights.Reinterpret<float>();
             float agentSize = GenericInformation.AgentSize * 0.5f;
             int leftLightAgents = 0;
@@ -50,7 +53,7 @@ namespace Swarm.Swarm
 
             // Display into text
             leftLightText.text = leftLightAgents.ToString();
-            rightLightText.text = rightLightAgents.ToString();*/
+            rightLightText.text = rightLightAgents.ToString();
         }
     }
 }
