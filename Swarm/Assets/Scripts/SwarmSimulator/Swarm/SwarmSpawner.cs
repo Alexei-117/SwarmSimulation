@@ -21,12 +21,9 @@ namespace Swarm.Swarm
 
 
         [Header("Agent data")]
-        [SerializeField] private float gatheringSpeed;
         [SerializeField] private float agentSpeed;
         [SerializeField] private float colliderSize;
         [SerializeField] private float communicationDistance;
-        [SerializeField] private float transferRate;
-        [SerializeField] private float consumptionRate;
         [SerializeField] private GameObject agentWithPhysics;
 
         [Header("Rendering")]
@@ -104,13 +101,13 @@ namespace Swarm.Swarm
 
             entityManager.AddComponentData<Gather>(entity, new Gather
             {
-                Value = gatheringSpeed
+                Value = false
             });
 
             entityManager.AddComponentData<PotentialValue>(entity, new PotentialValue
             {
                 Value = 0.0f,
-                TransferRate = transferRate
+                TransferValue = 0.0f
             });
 
             entityManager.AddComponentData<HighestPotentialAgent>(entity, new HighestPotentialAgent
@@ -124,9 +121,9 @@ namespace Swarm.Swarm
                 Radius = colliderSize
             });
 
-            entityManager.AddComponentData<Consumption>(entity, new Consumption
+            entityManager.AddComponentData<CompositeScale>(entity, new CompositeScale
             {
-                Value = consumptionRate
+                Value = float4x4.Scale(1.0f, 1.0f, 1.0f)
             });
 
             return entity;
