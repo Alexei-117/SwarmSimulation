@@ -4,6 +4,6 @@ namespace Swarm.Swarm
 {
     public struct Gather : IComponentData
     {
-        public float Value;
+        public bool Value;
     }
 }
