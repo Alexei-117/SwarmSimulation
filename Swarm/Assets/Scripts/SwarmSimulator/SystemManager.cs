@@ -11,6 +11,7 @@ namespace Swarm
 {
     public class SystemManager : MonoBehaviour
     {
+        [SerializeField] private float RemainingSimulationTimeInSeconds;
         [SerializeField] private List<string> RunningSystems;
         [SerializeField] private List<string> PerFrameSystems;
 
@@ -58,7 +59,7 @@ namespace Swarm
         private void InitializeSpawners()
         {
             InitializeSwarm();
-            InitializeGrid();
+            //InitializeGrid();
             InitializeLight();
         }
 
@@ -108,8 +109,29 @@ namespace Swarm
             }
         }
 
+        private void StopSystems()
+        {
+            foreach(SystemBaseManageable system in systems)
+            {
+                if(RunningSystems.Contains(system.Name))
+                {
+                    system.Enabled = false;
+                }
+            }
+        }
+
         void Update()
         {
+            if (RemainingSimulationTimeInSeconds > 0)
+            {
+                RemainingSimulationTimeInSeconds -= Time.deltaTime;
+            }
+            if (RemainingSimulationTimeInSeconds <= 0.0f)
+            {
+                StopSystems();
+                return;
+            }
+
             if (accumulatedTime > genericInformation.TimeStep)
             {
                 RunPerFrameSystems();
