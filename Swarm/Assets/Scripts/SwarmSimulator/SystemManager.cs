@@ -103,8 +103,8 @@ namespace Swarm
             {
                 if(RunningSystems.Contains(system.Name))
                 {
-                    system.Enabled = true;
                     system.GenericInformation = genericInformation;
+                    system.Enabled = true;
                 }
             }
         }

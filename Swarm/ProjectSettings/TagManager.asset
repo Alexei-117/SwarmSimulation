@@ -7,6 +7,7 @@ TagManager:
   - SystemManager
   - GridPlane
   - PotentialModelGrid
+  - Counter
   layers:
   - Default
   - TransparentFX
