@@ -10,7 +10,6 @@ using UnityEngine;
 
 namespace Swarm.Swarm
 {
-    [UpdateAfter(typeof(ConsumptionSystem))]
     public class FindHighestGradientSystem : SystemBaseManageable
     {
         private BuildPhysicsWorld buildPhysicsWorld;
