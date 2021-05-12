@@ -106,8 +106,7 @@ namespace Swarm.Swarm
 
             entityManager.AddComponentData<PotentialValue>(entity, new PotentialValue
             {
-                Value = 0.0f,
-                TransferValue = 0.0f
+                Value = 0.0f
             });
 
             entityManager.AddComponentData<HighestPotentialAgent>(entity, new HighestPotentialAgent
