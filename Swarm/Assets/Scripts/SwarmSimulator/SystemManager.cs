@@ -59,7 +59,7 @@ namespace Swarm
         private void InitializeSpawners()
         {
             InitializeSwarm();
-            //InitializeGrid();
+            InitializeGrid();
             InitializeLight();
         }
 

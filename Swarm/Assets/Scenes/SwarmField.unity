@@ -537,13 +537,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550131122}
-  m_LocalRotation: {x: 0.17915179, y: -0, z: -0, w: 0.98382145}
-  m_LocalPosition: {x: 0, y: 28.5, z: -49.9}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10.5, z: -55.03323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1440806216}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20.641, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &792290893
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1285,7 @@ MonoBehaviour:
   TransferRate: 0.5
   ConsumptionRate: 0.01
   AgentSize: 1
-  NumberOfAgents: 416
+  NumberOfAgents: 375
   GridInitialHeight: 10
   LayoutWidth: 80
   LayoutHeight: 40
@@ -1313,8 +1313,8 @@ MonoBehaviour:
   - AgentCollision
   - BoundaryCollision
   - RestoreCollidedPosition
-  - AccumulateAgents-
-  - PlotGrid-
+  - AccumulateAgents
+  - PlotGrid
   - AgentAreas
   - Aggregation
   PerFrameSystems:
