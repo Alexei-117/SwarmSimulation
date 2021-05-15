@@ -43,9 +43,9 @@ namespace Swarm.Grid
             {
                 meshVertices[gridDot.Index] = t.Value;
                
-                /// Paint dot to reflect number of agents. From Green (0 agents) --> To Red (9 agents), in HSV for easier computation
+                /// Paint dot to reflect number of agents. From Green (0 agents) --> To Red (22 agents), in HSV for easier computation
                 /// where green is 0.32f approximately and 0.0f is red
-                meshColors[gridDot.Index] = Color.HSVToRGB( Mathf.Max(1.0f - 0.68f - ((t.Value.y - 10.0f )/ 28.125f), 0.0f), 0.8f, 0.8f);
+                meshColors[gridDot.Index] = Color.HSVToRGB( Mathf.Max(1.0f - 0.68f - ((t.Value.y - 10.0f )/ 68.75f), 0.0f), 0.8f, 0.8f);
             }).Run();
 
             gridMesh.vertices = meshVertices.ToArray();

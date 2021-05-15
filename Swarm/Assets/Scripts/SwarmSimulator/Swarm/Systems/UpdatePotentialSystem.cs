@@ -21,14 +21,13 @@ namespace Swarm.Swarm
                 // Update rule
                 potential.Value -= potential.Value * consumptionRate;
                 potential.Value += gather.Value ? gatherRate : 0.0f;
-                //potential.Value += potential.TransferValue;
 
+                // Clean values for new timestep
                 if (potential.Value < 0.0f)
                 {
                     potential.Value = 0.0f;
                 }
 
-                // Clean values for new timestep
                 gather.Value = false;
             }).ScheduleParallel();
 

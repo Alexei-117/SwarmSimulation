@@ -537,13 +537,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 550131122}
-  m_LocalRotation: {x: 0.17915179, y: -0, z: -0, w: 0.98382145}
-  m_LocalPosition: {x: 0, y: 28.5, z: -49.9}
+  m_LocalRotation: {x: 0.109146155, y: -0.62836695, z: 0.089653656, w: 0.7649866}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1440806216}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 20.641, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.24, y: -78.8, z: 0}
 --- !u!1 &792290893
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,16 +573,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99d15e63c79b3f3469c823ad930ca9fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1: {r: 0.021978855, g: 0, b: 1, a: 0}
-  radius1: 1
+  color1: {r: 0.14510989, g: 0.12746526, b: 0.8773585, a: 0}
+  radius1: 10
   position1:
-    x: 10
-    y: 20
+    x: 200
+    y: 200
   color2: {r: 1, g: 0, b: 0, a: 0}
-  radius2: 5
+  radius2: 50
   position2:
-    x: 70
-    y: 20
+    x: 600
+    y: 200
 --- !u!4 &792290895
 Transform:
   m_ObjectHideFlags: 0
@@ -630,8 +630,8 @@ MonoBehaviour:
     x: 0.5
     y: 0.5
   endPoint:
-    x: 79.5
-    y: 39.5
+    x: 799.5
+    y: 399.5
   agentSpeed: 0.25
   colliderSize: 0.5
   communicationDistance: 1.75
@@ -841,8 +841,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159177715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: 20}
-  m_LocalScale: {x: 8, y: 1, z: 4}
+  m_LocalPosition: {x: 400, y: 0, z: 200}
+  m_LocalScale: {x: 80, y: 1, z: 40}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -1214,7 +1214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1440806215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 40, y: 0, z: 20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 550131125}
@@ -1279,16 +1279,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62b99545be85b4a4889a91e1a5ec24de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeStep: 0.2
-  agreggationThreshhold: 0
+  TimeStep: 1
+  agreggationThreshhold: -300
   Gather: 50
   TransferRate: 0.5
   ConsumptionRate: 0.01
   AgentSize: 1
-  NumberOfAgents: 416
+  NumberOfAgents: 20000
   GridInitialHeight: 10
-  LayoutWidth: 80
-  LayoutHeight: 40
+  LayoutWidth: 800
+  LayoutHeight: 400
 --- !u!114 &1449347359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,7 +1301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ef0999901de84944822934584625ed9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RemainingSimulationTimeInSeconds: 50
+  RemainingSimulationTimeInSeconds: 100
   RunningSystems:
   - Gather
   - Transfer
@@ -1680,4 +1680,4 @@ MonoBehaviour:
   rows: 10
   gridInitialHeight: 10
   speed: 5
-  dotMaterial: {fileID: 2100000, guid: 57b6f7368fee494449b0b87ab9d1edb2, type: 2}
+  dotMaterial: {fileID: 0}

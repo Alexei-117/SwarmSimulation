@@ -122,7 +122,7 @@ namespace Swarm.Swarm
 
             entityManager.AddComponentData<CompositeScale>(entity, new CompositeScale
             {
-                Value = float4x4.Scale(1.0f, 1.0f, 1.0f)
+                Value = float4x4.Scale(0.75f, 1.0f, 0.75f)
             });
 
             return entity;
